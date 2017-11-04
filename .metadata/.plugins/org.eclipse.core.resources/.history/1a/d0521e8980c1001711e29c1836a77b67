@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>OnPoint - Login</title>
+</head>
+
+<style>
+	body {
+		background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
+		background-size: 100%;
+	}
+	
+	#center {
+		margin: 0 auto;
+		text-align: center;
+		padding-top: 100px;
+	}
+	
+	sub {
+		font-size: 40px;
+	}
+	
+	#logo {
+		font-size: 80px; 
+		color: white; 
+		font-family: Courier;
+	}
+	
+	#login-box {
+		background-color: #F0F8FF;
+		margin: 0 auto;
+		text-align: center;
+		height: 280px;
+		width: 250px;
+		border: 1.5px solid #696969;
+		border-radius: 12px;
+		padding-top: 15px;
+		margin-top: 10px;
+	}
+	
+	input {
+		padding: 10px;
+		margin-bottom: 3px;
+		margin-left: 8px;
+	}
+	
+	#login_button {
+		width: 150px;
+		margin-top: 5px;
+	}
+	
+</style>
+<body>
+<div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<h id="logo">On<sub>&#9675</sub></h>
+	
+	<div id="login-box">
+		<form action="login" method="post">
+				<input type="text" name="username" placeholder="Username">
+				<br>
+				<input name="password" type="password" placeholder="Password">
+				<br>
+				<input id="login_button" type="submit" value="Login">
+		</form>
+	</div>
+</div>
+</body>
+</html>

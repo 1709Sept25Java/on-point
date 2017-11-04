@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>OnPoint - Login</title>
+</head>
+
+<style>
+	body {
+		background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
+		background-size: 100%;
+	}
+	
+	#center {
+		margin: 0 auto;
+		text-align: center;
+		padding-top: 100px;
+	}
+	
+	span {
+		padding-top: 10px;
+	}
+</style>
+<body>
+<div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<h style="font-size: 50px; color: white">On<span>&#9675</span></h>
+</div>
+</body>
+</html>

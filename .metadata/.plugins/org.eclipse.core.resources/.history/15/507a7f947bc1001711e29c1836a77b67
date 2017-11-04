@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>OnPoint - Login</title>
+</head>
+
+<style>
+	body {
+		background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
+		background-size: 100%;
+	}
+</style>
+<body>
+<div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<h style="font-size: 30px; color: white">On ⚫</h>
+</div>
+</body>
+</html>
