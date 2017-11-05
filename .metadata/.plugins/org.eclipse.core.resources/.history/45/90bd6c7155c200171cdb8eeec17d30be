@@ -1,5 +1,0 @@
-package onpoint.servlet;
-
-public class LogoutServlet {
-
-}
