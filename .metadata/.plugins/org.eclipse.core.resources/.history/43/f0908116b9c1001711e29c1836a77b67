@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+</head>
+<style>
+	#coverphoto {
+		background: url("http://colorfully.eu/wp-content/uploads/2012/08/beautiful-sky-view-with-red-clouds-and-white-sea-facebook-cover.jpg");
+		height: 300px;
+		width: 100%;
+	}
+</style>
+<body>
+	<div id="coverphoto">
+		<h>sfsdfds</h>
+	</div>
+</body>
+</html>

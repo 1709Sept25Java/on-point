@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage</title>
+
+<link rel="stylesheet" href="styles/homepage.css">
+<link rel="stylesheet" href="styles/navbar.css">
+</head>
+
+<ul>
+  <li><a class="active" href="homepage.html">Home</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="account.html">Account</a></li>
+  <li style="float:right"><a href="logout">Logout</a></li>
+</ul>
+
+<body>
+	<div id="coverphoto">
+		
+	</div>
+	<div class="row" style="width: 100%">
+		<div class="col-sm-4 col-md-4 col-lg-4" id="col1">
+			<h>Weather</h>
+		</div>
+		<div class="col-sm-8 col-md-8 col-lg-8" id="col2">
+			<h>My Events</h>
+		</div>
+	</div>
+</body>
+</html>

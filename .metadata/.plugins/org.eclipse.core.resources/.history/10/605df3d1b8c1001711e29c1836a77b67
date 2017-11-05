@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+</head>
+<script>
+	#coverphoto {
+		background-color: blue;
+		width: 200px;
+	}
+</script>
+	<body>
+	<div id="coverphoto">
+		<h>sfsdfds</h>
+	</div>
+</body>
+</html>

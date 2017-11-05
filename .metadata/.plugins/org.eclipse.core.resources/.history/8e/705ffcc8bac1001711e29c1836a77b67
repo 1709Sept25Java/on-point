@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+</head>
+<style>
+	#coverphoto {
+		background: url("http://wallset.in/wp-content/uploads/2014/08/Stairway-to-Heaven-twitter.jpg");
+		background-size: 100%;
+		background-repeat: no-repeat;
+		height: 450px;
+		margin: -10px;
+	}
+</style>
+<body>
+	<div id="coverphoto">
+		
+	</div>
+</body>
+</html>
