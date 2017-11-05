@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OnPoint - Login</title> 
 
-<link rel="stylesheet" href="styles/login.css">
+<link rel="stylesheet" href="styles/register.css">
 </head>
 
 <body>
@@ -13,16 +13,19 @@
 	<h id="logo">On<sub>&#9675</sub></h>
 	
 	<div id="login-box">
-		<form action="login" method="post">
+		<div id="register">
+			<h>New User</h>
+		</div>
+		<form action="register" method="post">
 				<input type="text" name="username" placeholder="Username">
 				<br>
 				<input name="password" type="password" placeholder="Password">
 				<br>
-				<input id="login_button" type="submit" value="Login">
+				<input type="text" name="email" placeholder="Email">
+				<br>
+				<input id="number" type="text" name="phone_number"placeholder="(xxx) xxx-xxxx">
+				<input id="register_button" type="submit" value="Register">
 		</form>
-		<div style="padding-top: 10px">
-			<h>New user? <a href="register">Register Here.</a></h>
-		</div>
 	</div>
 </div>
 </body>
