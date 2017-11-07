@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		resp.setContentType("text/html");
-		req.getRequestDispatcher("views/register.html").include(req, resp);
+		req.getRequestDispatcher("index.html").include(req, resp);
 	}
 	
 	@Override
