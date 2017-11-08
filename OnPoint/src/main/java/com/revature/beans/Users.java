@@ -19,8 +19,7 @@ public class Users implements Serializable {
 	@Column(name="USER_ID")
 	private int id;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="USERNAME", unique = true, nullable = false)
+	@Column(name="USERNAME", unique = true, nullable = false)
 	private String username;
 	
 	@Column(name="PASSWORD", nullable = false)

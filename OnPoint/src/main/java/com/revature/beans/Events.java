@@ -12,12 +12,10 @@ public class Events implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="opEventsSequence")
 	@SequenceGenerator(allocationSize=1,name="opEventsSequence",sequenceName="SQ_OP_EVENTS_PK")
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="EVENT_ID")
+	@Column(name="EVENT_ID")
 	private int e_id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="USER_ID", nullable = false)
+	@Column(name="USER_ID", nullable = false)
 	private int u_id;
 	
 	@Column(name="DATE", nullable = false)
