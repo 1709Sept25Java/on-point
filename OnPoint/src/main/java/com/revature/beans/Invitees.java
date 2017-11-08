@@ -1,4 +1,4 @@
-package onpoint.beans;
+package com.revature.beans;
 
 import java.io.Serializable;
 
@@ -16,8 +16,7 @@ public class Invitees implements Serializable{
 	@Column(name="INVITEE_ID")
 	private int i_id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="EVENT_ID", nullable = false)
+	@Column(name="EVENT_ID", nullable = false)
 	private int e_id;
 	
 	@Column(name="FIRSTNAME")
