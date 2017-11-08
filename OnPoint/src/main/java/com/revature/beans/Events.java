@@ -1,8 +1,6 @@
-package onpoint.beans;
+package com.revature.beans;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
