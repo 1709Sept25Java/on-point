@@ -1,12 +1,23 @@
 package onpoint.beans;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("events")
+@Scope("prototype")
 @Entity
 @Table(name="OP_EVENTS")
+
+@NamedQueries({
+	@NamedQuery(
+			name = "namedQueryGetEventsByUserId",
+			query = "from Events e where e.u_id = :id" //use class name and not table 
+			)
+})
 public class Events implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -14,19 +25,17 @@ public class Events implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="opEventsSequence")
 	@SequenceGenerator(allocationSize=1,name="opEventsSequence",sequenceName="SQ_OP_EVENTS_PK")
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="EVENT_ID")
+	@Column(name="EVENT_ID")
 	private int e_id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="USER_ID", nullable = false)
+	@Column(name="USER_ID", nullable = false)
 	private int u_id;
 	
-	@Column(name="DATE", nullable = false)
-	private String date;
+	@Column(name="EVENT_DATE", nullable = false)
+	private String event_date;
 	
-	@Column(name="TIME", nullable = false)
-	private String time;
+	@Column(name="EVENT_TIME", nullable = false)
+	private String event_time;
 	
 	@Column(name="LOCATION", nullable = false)
 	private String location;
@@ -47,16 +56,16 @@ public class Events implements Serializable {
 		this.u_id = u_id;
 	}
 	public String getDate() {
-		return date;
+		return event_date;
 	}
 	public void setDate(String date) {
-		this.date = date;
+		this.event_date = date;
 	}
 	public String getTime() {
-		return time;
+		return event_time;
 	}
 	public void setTime(String time) {
-		this.time = time;
+		this.event_time = time;
 	}
 	public String getLocation() {
 		return location;
@@ -77,14 +86,14 @@ public class Events implements Serializable {
 		super();
 		this.e_id = e_id;
 		this.u_id = u_id;
-		this.date = date;
-		this.time = time;
+		this.event_date = date;
+		this.event_time = time;
 		this.location = location;
 		this.description = description;
 	}
 	@Override
 	public String toString() {
-		return "Events [e_id=" + e_id + ", u_id=" + u_id + ", date=" + date + ", time=" + time + ", location="
+		return "Events [e_id=" + e_id + ", u_id=" + u_id + ", date=" + event_date + ", time=" + event_time + ", location="
 				+ location + ", description=" + description + "]";
 	}
 	

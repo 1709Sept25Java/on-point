@@ -2,8 +2,20 @@ package onpoint.beans;
 
 import javax.persistence.*;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("weather")
+@Scope("prototype")
 @Entity 
 @Table(name="OP_WEATHER")
+
+@NamedQueries({
+	@NamedQuery(
+			name = "namedQueryGetWeatherPreference",
+			query = "from Weather w where w.u_id = :id" //use class name and not table 
+			)
+})
 public class Weather {
 
 	@Id
