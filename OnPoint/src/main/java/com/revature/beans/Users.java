@@ -5,10 +5,21 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import org.hibernate.annotations.Check;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component("users")
+@Scope("prototype")
 @Entity
 @Table(name="OP_USERS")
 @Check(constraints = "USER_TYPE IN ('USER','ADMIN')")
+
+@NamedQueries({
+	@NamedQuery(
+			name = "namedQueryGetUserByUsername",
+			query = "from Users u where u.username = :username" //use class name and not table 
+			)
+})
 public class Users implements Serializable {
 
 	private static final long serialVersionUID = 1L;

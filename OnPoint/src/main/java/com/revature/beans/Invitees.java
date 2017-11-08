@@ -4,8 +4,20 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("invitees")
+@Scope("prototype")
 @Entity 
 @Table(name="OP_INVITEES")
+
+@NamedQueries({
+	@NamedQuery(
+			name = "namedQueryGetInviteesByEventId",
+			query = "from Invitees i where i.e_id = :id" //use class name and not table 
+			)
+})
 public class Invitees implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -57,6 +69,11 @@ public class Invitees implements Serializable{
 	}
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
+	}
+	@Override
+	public String toString() {
+		return "Invitees [i_id=" + i_id + ", e_id=" + e_id + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", phone_number=" + phone_number + "]";
 	}
 	
 	
