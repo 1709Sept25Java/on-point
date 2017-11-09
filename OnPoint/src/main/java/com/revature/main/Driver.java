@@ -1,4 +1,4 @@
-package onpoint.main;
+package com.revature.main;
 
 import java.util.Iterator;
 import java.util.List;
@@ -6,14 +6,16 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import onpoint.beans.*;
-import onpoint.dao.*;
+import com.revature.dao.InviteesDao;
+
+import com.revature.beans.*;
+import com.revature.dao.*;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
 		//UsersDao ud = (UsersDao) ac.getBean("usersDao");

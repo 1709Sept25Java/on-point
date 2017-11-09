@@ -1,6 +1,6 @@
-package onpoint.dao;
+package com.revature.dao;
 
-import onpoint.beans.Weather;
+import com.revature.beans.Weather;
 
 import java.util.Iterator;
 import java.util.List;
@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import onpoint.beans.Weather;
 
 @Transactional
 @Component(value="weatherDao")

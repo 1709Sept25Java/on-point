@@ -1,6 +1,6 @@
-package onpoint.dao;
+package com.revature.dao;
 
-import onpoint.beans.Weather;
+import com.revature.beans.Weather;
 
 public interface WeatherDao {
 

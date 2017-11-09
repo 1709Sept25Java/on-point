@@ -1,5 +1,6 @@
-package onpoint.dao;
+package com.revature.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -11,46 +12,47 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import onpoint.beans.Invitees;
+import com.revature.beans.Users;
 
 @Transactional
-@Component(value="inviteesDao")
+@Component(value="usersDao")
 @Scope(value="prototype")
-public class InviteesDaoImpl implements InviteesDao{
+public class UsersDaoImpl implements UsersDao{
 
 	@Autowired
 	public SessionFactory sessionFactory;
 	
 	@Override
-	public List<Invitees> namedQueryGetInviteesByEventId(int id) {
+	public Users namedQueryGetUserByUsername(String username) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
-		Query q = s.getNamedQuery("namedQueryGetInviteesByEventId");
-		q.setInteger("id", id);
-		List<Invitees> il = q.list();
+		Query q = s.getNamedQuery("namedQueryGetUserByUsername");
+		q.setString("username", username);
+		List<Users> ul = q.list();
+		Iterator<Users> it = ul.iterator();
+		Users u = it.next();
 		tx.commit();
 		if(s.isOpen()) {
 			s.close();
 		}
-		return il;
-		
+		return u;
 	}
 	
 	@Override
-	public Invitees getInviteeById(int id) {
+	public List<Users> getAllUsers() {
 		Session s = sessionFactory.getCurrentSession();
-		Invitees i = (Invitees) s.get(Invitees.class, id);
+		List<Users> Users = s.createQuery("from Op_users").list();
 		if(s.isOpen()) {
 			s.close();
 		}
-		return i;
+		return Users;
 	}
 
 	@Override
-	public int addInvitee(Invitees i) {
+	public int addUser(Users u) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
-		int result = (int) s.save(i);
+		int result = (int) s.save(u);
 		tx.commit();
 		if(s.isOpen()) {
 			s.close();
@@ -59,10 +61,10 @@ public class InviteesDaoImpl implements InviteesDao{
 	}
 
 	@Override
-	public void updateInvitee(Invitees i) {
+	public void updateUser(Users u) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
-		s.merge(i);
+		s.merge(u);
 		tx.commit();
 		if(s.isOpen()) {
 			s.close();
@@ -71,15 +73,14 @@ public class InviteesDaoImpl implements InviteesDao{
 	}
 
 	@Override
-	public void deleteBat(Invitees i) {
+	public void deleteUser(Users u) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
-		s.delete(i);
+		s.delete(u);
 		tx.commit();
 		if(s.isOpen()) {
 			s.close();
 		}
-		
 	}
 
 }

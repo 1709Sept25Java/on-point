@@ -27,8 +27,6 @@ public class RegisterServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String phone_number = req.getParameter("phone_number");
 		
-		System.out.println(username);
-		
 		resp.sendRedirect(req.getContextPath() 
 				+ "/homepage.html");
 	}
