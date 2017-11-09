@@ -32,8 +32,4 @@ public class LoginServlet extends HttpServlet{
 		resp.sendRedirect(req.getContextPath() 
 				+ "/homepage.html");
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb

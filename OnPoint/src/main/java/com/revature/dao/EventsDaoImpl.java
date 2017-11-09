@@ -1,4 +1,4 @@
-package onpoint.dao;
+package com.revature.dao;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import onpoint.beans.Events;
+import com.revature.beans.Events;
 
 @Transactional
 @Component(value="eventsDao")

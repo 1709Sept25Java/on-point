@@ -1,7 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=5caa136350f05e0b6e2c395a86a1f766e42499fb
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files (x86)\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
 eclipse.preferences.version=1
-<<<<<<< HEAD
-internalWebBrowserHistory=http\://localhost\:8080/OnPoint/logout|*|http\://localhost\:8080/OnPoint/homepage.html|*|http\://localhost\:8080/OnPoint/|*|http\://localhost\:8080/OnPoint/views/register|*|http\://localhost\:8080/OnPoint/views/register.html|*|http\://localhost\:8080/OnPoint/register|*|http\://localhost\:8080/OnPoint/views/homepage.html|*|http\://localhost\:8082/OnPoint/|*|file\:/C\:/GitRepos/1709-sept25-java/on-point/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1509805778586/index.html|*|
-=======
-internalWebBrowserHistory=http\://localhost\:8080/OnPoint/logout|*|http\://localhost\:8080/OnPoint/homepage.html|*|http\://localhost\:8080/OnPoint/|*|http\://localhost\:8080/OnPoint/index.html|*|http\://localhost\:8082/OnPoint/|*|file\:/C\:/GitRepos/1709-sept25-java/on-point/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1509805778586/index.html|*|
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb
+internalWebBrowserHistory=http\://localhost\:8080/OnPoint/WEB-INF/static/index.html|*|http\://localhost\:8080/OnPoint/|*|http\://localhost\:8080/OnPoint/logout|*|http\://localhost\:8080/OnPoint/homepage.html|*|http\://localhost\:8080/OnPoint/index.html|*|http\://localhost\:8082/OnPoint/|*|file\:/C\:/GitRepos/1709-sept25-java/on-point/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1509805778586/index.html|*|

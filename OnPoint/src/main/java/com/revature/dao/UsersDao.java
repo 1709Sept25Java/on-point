@@ -1,8 +1,8 @@
-package onpoint.dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import onpoint.beans.Users;
+import com.revature.beans.Users;
 
 public interface UsersDao {
 

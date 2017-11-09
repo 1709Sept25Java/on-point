@@ -14,8 +14,6 @@
 		<item value="1" key="rootMode"/>
 		<item value="false" key="linkWithEditor"/>
 	</section>
-<<<<<<< HEAD
-=======
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="678" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
@@ -23,18 +21,10 @@
 		<item value="164" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
 		<item value="true" key="create_unimplemented"/>
 	</section>
-<<<<<<< HEAD
-	<section name="ClasspathContainerSelectionPage">
-		<item value="0" key="index"/>
-	</section>
-	<section name="OptionalMessageDialog.hide.">
-		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
-=======
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -86,7 +76,6 @@
 		<item value="806" key="DIALOG_HEIGHT"/>
 		<item value="164" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb
 	</section>
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>
@@ -98,13 +87,10 @@
 	</section>
 	<section name="completion_proposal_size">
 	</section>
-<<<<<<< HEAD
-=======
 	<section name="AddGetterSetterDialog">
 		<item value="false" key="SortOrdering"/>
 		<item value="false" key="RemoveFinal"/>
 	</section>
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb
 	<section name="JavaElementSearchActions">
 	</section>
 </section>

@@ -27,16 +27,7 @@ public class RegisterServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String phone_number = req.getParameter("phone_number");
 		
-<<<<<<< HEAD
 		resp.sendRedirect(req.getContextPath() 
 				+ "/homepage.html");
 	}
 }
-=======
-		System.out.println(username);
-		
-		resp.sendRedirect(req.getContextPath() 
-				+ "/homepage.html");
-	}
-}
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb

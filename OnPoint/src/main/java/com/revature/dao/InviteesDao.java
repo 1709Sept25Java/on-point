@@ -1,8 +1,8 @@
-package onpoint.dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import onpoint.beans.Invitees;
+import com.revature.beans.Invitees;
 
 public interface InviteesDao {
 

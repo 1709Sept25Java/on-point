@@ -1,10 +1,7 @@
 package com.revature.beans;
 
 import java.io.Serializable;
-<<<<<<< HEAD:OnPoint/src/main/java/onpoint/beans/Events.java
 
-=======
->>>>>>> 34aeaf23aea916a5483c74dbf1b014579fef8b95:OnPoint/src/main/java/com/revature/beans/Events.java
 import javax.persistence.*;
 
 import org.springframework.context.annotation.Scope;

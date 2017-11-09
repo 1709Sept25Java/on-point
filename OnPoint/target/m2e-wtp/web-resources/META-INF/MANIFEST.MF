@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: Mynhung
 Build-Jdk: 1.8.0_144
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: anahi
-Build-Jdk: 1.8.0_144
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 5caa136350f05e0b6e2c395a86a1f766e42499fb

@@ -1,8 +1,8 @@
-package onpoint.dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import onpoint.beans.Events;
+import com.revature.beans.Events;
 
 public interface EventsDao {
 
