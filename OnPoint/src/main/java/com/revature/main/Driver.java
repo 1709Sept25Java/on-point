@@ -65,6 +65,6 @@ public class Driver {
 			System.out.println(itr.next().toString());
 		}*/
 		
-		//System.out.println(ud.namedQueryisValidUsername("jane"));
+		//System.out.println(ud.namedQueryisValidPassword("janedoe22","doe22"));
 	}
 }
