@@ -6,6 +6,10 @@ import com.revature.beans.Users;
 
 public interface UsersDao {
 
+	public boolean namedQueryisValidUsername(String username);
+	
+	public boolean namedQueryisValidPassword(String username, String password);
+	
 	public Users namedQueryGetUserByUsername(String username);
 	
 	public List<Users> getAllUsers();

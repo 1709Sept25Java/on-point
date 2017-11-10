@@ -29,13 +29,13 @@ public class Driver {
 		u.setPhone_number("(555)555-5555");
 		ud.addUser(u);*/
 		
-		Users u = (Users) ac.getBean("users");
+		/*Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");
 		u.setPassword("password");
 		u.setUser_type("ADMIN");
 		u.setEmail("admin123@gmail.com");
 		u.setPhone_number("(555)555-1234");
-		ud.addUser(u);
+		ud.addUser(u);*/
 		
 		/*Events e = (Events) ac.getBean("events");
 		e.setU_id(1);
@@ -64,5 +64,7 @@ public class Driver {
 		while(itr.hasNext()) {
 			System.out.println(itr.next().toString());
 		}*/
+		
+		//System.out.println(ud.namedQueryisValidUsername("jane"));
 	}
 }
