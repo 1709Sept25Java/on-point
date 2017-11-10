@@ -95,7 +95,9 @@
                             <form:button id="login" name="login">Login</form:button>
                         </td>
                     </tr>
+                    <br>
         </form:form>
+        	<p style="color: red; margin-top: 6px; font-family: Courier; font-size: 14px">${message}</p>
     </div>
 </div>
 </body>

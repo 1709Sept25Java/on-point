@@ -17,8 +17,8 @@ public class Driver {
 		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
-		InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
-		//UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
+		UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
 		
 		/*Users u = (Users) ac.getBean("users");
@@ -59,10 +59,12 @@ public class Driver {
 		i.setPhone_number("(555)555-3333");
 		id.addInvitee(i);*/
 		
-		List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
+		/*List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
 		Iterator<Invitees> itr = il.iterator();
 		while(itr.hasNext()) {
 			System.out.println(itr.next().toString());
-		}
+		}*/
+		
+		//System.out.println(ud.namedQueryisValidUsername("jane"));
 	}
 }

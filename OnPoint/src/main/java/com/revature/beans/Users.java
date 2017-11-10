@@ -18,6 +18,14 @@ import org.springframework.stereotype.Component;
 	@NamedQuery(
 			name = "namedQueryGetUserByUsername",
 			query = "from Users u where u.username = :username" //use class name and not table 
+			),
+	@NamedQuery(
+			name = "namedQueryisValidPassword",
+			query = "select u.password from Users u where u.username = :username"  
+			),
+	@NamedQuery(
+			name = "namedQueryisValidUsername",
+			query = "select count(u.username) from Users u where u.username = :username"  
 			)
 })
 public class Users implements Serializable {
