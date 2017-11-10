@@ -84,7 +84,7 @@ body {
         <div id="register">
             <h>New User</h>
         </div>
-        <form:form id="registerForm" modelAttribute="register" action="homepage" method="post">
+        <form:form id="registerForm" modelAttribute="register" action="register" method="post">
                 <tr>
                         <td></td>
                         <td>

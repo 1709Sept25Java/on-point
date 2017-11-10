@@ -30,6 +30,14 @@ import org.springframework.stereotype.Component;
 })
 public class Users implements Serializable {
 
+	public Users(String username, String password, String user_type, String email, String phone_number) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.user_type = user_type;
+		this.email = email;
+		this.phone_number = phone_number;
+	}
 	private static final long serialVersionUID = 1L;
 
 	@Id
