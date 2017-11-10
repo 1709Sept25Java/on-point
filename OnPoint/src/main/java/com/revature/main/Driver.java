@@ -17,8 +17,8 @@ public class Driver {
 		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
-		InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
-		//UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
+		UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
 		
 		/*Users u = (Users) ac.getBean("users");
@@ -29,13 +29,13 @@ public class Driver {
 		u.setPhone_number("(555)555-5555");
 		ud.addUser(u);*/
 		
-		/*Users u = (Users) ac.getBean("users");
+		Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");
 		u.setPassword("password");
 		u.setUser_type("ADMIN");
 		u.setEmail("admin123@gmail.com");
 		u.setPhone_number("(555)555-1234");
-		ud.addUser(u);*/
+		ud.addUser(u);
 		
 		/*Events e = (Events) ac.getBean("events");
 		e.setU_id(1);
@@ -59,10 +59,10 @@ public class Driver {
 		i.setPhone_number("(555)555-3333");
 		id.addInvitee(i);*/
 		
-		List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
+		/*List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
 		Iterator<Invitees> itr = il.iterator();
 		while(itr.hasNext()) {
 			System.out.println(itr.next().toString());
-		}
+		}*/
 	}
 }
