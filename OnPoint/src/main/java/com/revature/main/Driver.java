@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.revature.dao.InviteesDao;
-
+import com.revature.util.TextMessage;
 import com.revature.beans.*;
 import com.revature.dao.*;
 
@@ -15,9 +15,11 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		//TextMessage.sendTextNotification("+", "blahuihui");
+		//TextMessage.sendTextNotificationWithImage("+", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
+		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
-		InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
+		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
 		//UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
 		
@@ -59,10 +61,10 @@ public class Driver {
 		i.setPhone_number("(555)555-3333");
 		id.addInvitee(i);*/
 		
-		List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
-		Iterator<Invitees> itr = il.iterator();
-		while(itr.hasNext()) {
-			System.out.println(itr.next().toString());
-		}
+//		List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
+//		Iterator<Invitees> itr = il.iterator();
+//		while(itr.hasNext()) {
+//			System.out.println(itr.next().toString());
+//		}
 	}
 }
