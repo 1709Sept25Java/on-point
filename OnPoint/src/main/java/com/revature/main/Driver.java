@@ -64,7 +64,7 @@ public class Driver {
 		}
     	*/
 		
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MINUTE, 50);
         calendar.set(Calendar.HOUR, 3);
@@ -107,18 +107,19 @@ public class Driver {
 		//TextMessage.sendTextNotification("+", "blahuihui");
         
 		//TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
-		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
+		UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		
-		/*Users u = (Users) ac.getBean("users");
-		u.setUsername("janedoe22");
-		u.setPassword("doe22");
-		u.setUser_type("USER");
-		u.setEmail("janedoe22@gmail.com");
-		u.setPhone_number("(555)555-5555");
-		ud.addUser(u);*/
+		Users u = (Users) ac.getBean("users");
+		u.setUsername("admin");
+		u.setPassword("password");
+		u.setUser_type("ADMIN");
+		u.setEmail("admin123@gmail.com");
+		u.setPhone_number("(555)123-5555");
+		ud.addUser(u);
 		
 		/*Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");

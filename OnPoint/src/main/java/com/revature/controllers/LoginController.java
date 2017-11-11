@@ -49,10 +49,15 @@ public class LoginController {
 	  
 	  UsersDao ud = (UsersDao) ac.getBean("usersDao");
 	  user = ud.namedQueryGetUserByUsername(username);
+	  String type = user.getUser_type();
 	  
 	  if(ud.namedQueryisValidUsername(username)) {
 		  if(ud.namedQueryisValidPassword(username, password)) {
-			  mav = new ModelAndView("home");
+			  if(type.equals("USER")) {
+				  mav = new ModelAndView("home");
+			  }else {
+				  mav = new ModelAndView("admin");
+			  }
 		  }else {
 			  mav = new ModelAndView("login");
 			  mav.addObject("message", "**Invalid Password**");

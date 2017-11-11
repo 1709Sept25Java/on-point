@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>Admin Homepage</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
 </head>
@@ -88,8 +88,6 @@
 
 <ul>
   <li><a class="active" href="#">Home</a></li>
-  <li><a href="#">About Us</a></li>
-  <li><a href="#">Account</a></li>
   <li style="float:right"><a href="logout">Logout</a></li>
 </ul>
 
@@ -128,14 +126,10 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" id="col2">
             <div id="my_events">
-                <h>My Events</h>
-            </div>
-            <div id="new_events">
-                <h>New Events</h>
+                <h>All Users</h>
             </div>
         </div>
     </div>
-    
     <script>
     
    	 	var lat = document.getElementById("lat");
