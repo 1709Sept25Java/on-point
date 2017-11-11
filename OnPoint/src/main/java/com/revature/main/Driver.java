@@ -106,11 +106,10 @@ public class Driver {
         */
 		//TextMessage.sendTextNotification("+", "blahuihui");
         
-		TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
+		//TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
 		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
-		//UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
 		
 		/*Users u = (Users) ac.getBean("users");
@@ -151,10 +150,12 @@ public class Driver {
 		i.setPhone_number("(555)555-3333");
 		id.addInvitee(i);*/
 		
-//		List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
-//		Iterator<Invitees> itr = il.iterator();
-//		while(itr.hasNext()) {
-//			System.out.println(itr.next().toString());
-//		}
+		/*List<Invitees> il = id.namedQueryGetInviteesByEventId(1);
+		Iterator<Invitees> itr = il.iterator();
+		while(itr.hasNext()) {
+			System.out.println(itr.next().toString());
+		}*/
+		
+		//System.out.println(ud.namedQueryisValidUsername("jane"));
 	}
 }
