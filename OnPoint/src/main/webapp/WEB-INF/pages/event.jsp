@@ -94,13 +94,13 @@ body {
                 <tr>
                         <td></td>
                         <td>
-                            <form:input path="date" name="date" id="date" placeholder="date"/>
+                            <form:input type="date" path="date" name="date" id="date" placeholder="date"/>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <form:input path="time" name="time" id="time" placeholder="time"/>
+                            <form:input type="time" path="time" name="time" id="time" placeholder="time"/>
                         </td>
                     </tr>
                     <tr>
