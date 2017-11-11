@@ -1,9 +1,6 @@
 INDEX VERSION 1.4+C:\GitRepos\1709-sept25-java\on-point\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1720227209.index
 788871163.index
 986800333.index
-2804857624.index
-1163965982.index
 3776751439.index
 1464891751.index
 862278598.index
@@ -11,4 +8,3 @@ INDEX VERSION 1.4+C:\GitRepos\1709-sept25-java\on-point\.metadata\.plugins\org.e
 1197958225.index
 3163386331.index
 986800333.index
-2804857624.index
