@@ -68,6 +68,7 @@
 	.active {
 	    background-color: #4CAF50;
 	}
+	
 
 </style>
 
@@ -87,6 +88,11 @@
             <div style="text-align: center">
                 <h>Weather</h>
             </div>
+            <div id="weather_info">
+            	<p id="message"></p>
+            	<p>Latitude: <span id="lat"></span></p>
+            	<p>Longitude: <span id="lon"></span></p>
+            </div>
         </div>
         <div class="col-sm-8 col-md-8 col-lg-8" id="col2">
             <div id="my_events">
@@ -97,5 +103,60 @@
             </div>
         </div>
     </div>
+    <script>
+    
+   	 	var lat = document.getElementById("lat");
+		var lon = document.getElementById("lon");
+		var message = document.getElementById("message");
+		
+		var latitude;
+		var longitude;
+		
+    	window.onload = getLocation();
+    	
+    	function getLocation() {
+    	    if (navigator.geolocation) {
+    	        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    	    } else { 
+    	        message.innerHTML = "Geolocation not supported by browser.";
+    	    }
+    	}
+    	
+    	function showPosition(position) {
+    		latitude = position.coords.latitude.toString().substring(0,6);
+        	longitude = position.coords.longitude.toString().substring(0,7);
+    	    lat.innerHTML = latitude + "°";
+    	    lon.innerHTML = longitude + "°";
+    	}
+
+    	function showError(error) {
+    	    switch(error.code) {
+    	        case error.PERMISSION_DENIED:
+    	            x.innerHTML = "User denied the request for Geolocation."
+    	            break;
+    	        case error.POSITION_UNAVAILABLE:
+    	            x.innerHTML = "Location information is unavailable."
+    	            break;
+    	        case error.TIMEOUT:
+    	            x.innerHTML = "The request to get user location timed out."
+    	            break;
+    	        case error.UNKNOWN_ERROR:
+    	            x.innerHTML = "An unknown error occurred."
+    	            break;
+    	    }
+    	}
+    	
+    	$.ajax({
+    		url: 'http://localhost:8080/OnPoint/user',
+    		type: 'POST',
+    	});
+        <form:form id="loginForm" modelAttribute="login" action="location" method="post"></form>
+    	/*$.get('http://localhost:8080/OnPoint/user').then(function(){
+    		$('#latitude').append(latitude);
+    		$('#longitude').append(longitude);
+    	});*/
+   
+   
+    </script>
 </body>
 </html>
