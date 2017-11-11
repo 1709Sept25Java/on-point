@@ -79,39 +79,37 @@ body {
 <body>
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
-   <div id="event-box">
-       <form:form id="eventForm" modelAttribute="event" action="eventProcess" method="post">
+    <!-- 
+    private String event_date;
+	private String event_time;
+	private String location;
+	private String description;
+     -->
+    
+    <div id="Event-box">
+        <div id="event">
+            <h>New Event</h>
+        </div>
+        <form:form id="eventForm" modelAttribute="event" action="eventProcess" method="post">
                 <tr>
                         <td></td>
                         <td>
-                            <form:input path="e_id" name="e_id" id="e_id" placeholder="e_id"/>
+                            <form:input path="date" name="date" id="date" placeholder="date"/>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <form:input path="u_id" name="u_id" id="u_id" placeholder="u_id"/>
+                            <form:input path="time" name="time" id="time" placeholder="time"/>
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
-                            <form:input path="event_date" name="event_date" id="event_date" placeholder="event_date"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <form:input path="event_time" name="event_time" id="event_time" placeholder="event_time"/>
-                        </td>
-                    </tr>
-                     <tr>
                         <td></td>
                         <td>
                             <form:input path="location" name="location" id="location" placeholder="location"/>
                         </td>
                     </tr>
-                      <tr>
+                     <tr>
                         <td></td>
                         <td>
                             <form:input path="description" name="description" id="description" placeholder="description"/>
@@ -121,12 +119,11 @@ body {
                         <br>
                         <td></td>
                         <td align="center">
-                            <form:button id="event_button" name="event">Event</form:button>
+                            <form:button id="event_button" name="event">Create event</form:button>
                         </td>
                     </tr>
         </form:form>
     </div>
-    
 </div>
 </body>
 </html>
