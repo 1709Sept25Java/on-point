@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 @Entity
 @Table(name="OP_EVENTS")
-
+/*
 @NamedQueries({
 	@NamedQuery(
 			name = "namedQueryGetEventsByUserId",
 			query = "from Events e where e.u_id = :id" //use class name and not table 
 			)
-})
-public class Events implements Serializable {
+})*/
+public class Event implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -79,10 +79,10 @@ public class Events implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Events() {
+	public Event() {
 		super();
 	}
-	public Events(int e_id, int u_id, String date, String time, String location, String description) {
+	public Event(int e_id, int u_id, String date, String time, String location, String description) {
 		super();
 		this.e_id = e_id;
 		this.u_id = u_id;

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.beans.Events;
+import com.revature.beans.Event;
 
 @Transactional
 @Component(value="eventsDao")
@@ -22,12 +22,12 @@ public class EventsDaoImpl implements EventsDao {
 	public SessionFactory sessionFactory;
 
 	@Override
-	public List<Events> namedQueryGetEventsByUserId(int id){
+	public List<Event> namedQueryGetEventsByUserId(int id){
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
 		Query q = s.getNamedQuery("namedQueryGetEventsByUserId");
 		q.setInteger("id", id);
-		List<Events> e = q.list();
+		List<Event> e = q.list();
 		tx.commit();
 		if(s.isOpen()) {
 			s.close();
@@ -36,9 +36,9 @@ public class EventsDaoImpl implements EventsDao {
 	}
 	
 	@Override
-	public Events getEventById(int id) {
+	public Event getEventById(int id) {
 		Session s = sessionFactory.getCurrentSession();
-		Events e = (Events) s.get(Events.class, id);
+		Event e = (Event) s.get(Event.class, id);
 		if(s.isOpen()) {
 			s.close();
 		}
@@ -46,7 +46,7 @@ public class EventsDaoImpl implements EventsDao {
 	}
 	
 	@Override
-	public int addEvent(Events e) {
+	public int addEvent(Event e) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
 		int result = (int) s.save(e);
@@ -58,7 +58,7 @@ public class EventsDaoImpl implements EventsDao {
 	}
 
 	@Override
-	public void updateEvent(Events e) {
+	public void updateEvent(Event e) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
 		s.merge(e);
@@ -70,7 +70,7 @@ public class EventsDaoImpl implements EventsDao {
 	}
 
 	@Override
-	public void deleteEvent(Events e) {
+	public void deleteEvent(Event e) {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
 		s.delete(e);

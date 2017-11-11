@@ -1,24 +1,115 @@
 package com.revature.main;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.SchedulerFactory;
+import org.quartz.SimpleScheduleBuilder;
+import org.quartz.SimpleTrigger;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import static org.quartz.JobBuilder.*;
 
 import com.revature.dao.InviteesDao;
-
+import com.revature.util.SimpleJob;
+import com.revature.util.TextMessage;
 import com.revature.beans.*;
 import com.revature.dao.*;
+import org.quartz.JobDetail;
 
 public class Driver {
 
 	public static void main(String[] args) {
+		/*
+		JobDetail job = JobBuilder.newJob(SimpleJob.class)
+				.withIdentity("dummyOn.Job", "group1")
+				.build();
+		Trigger trigger = TriggerBuilder
+				.newTrigger()
+				.withIdentity("dummyOn.Job", "group1")
+				.withSchedule(
+						SimpleScheduleBuilder.simpleSchedule()
+						.withIntervalInSeconds(5).repeatForever()).build();
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		Scheduler scheduler;
+		try {
+			scheduler = new StdSchedulerFactory().getScheduler();
+			scheduler.start();
+			scheduler.scheduleJob(job, trigger);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		*/
+		/*JobDetail job = JobBuilder.newJob(SimpleJob.class) 
+				.withIdentity("dummyJobName", "group1").build();
+		Trigger trigger = TriggerBuilder.newTrigger().withIdentity("dummyJobName").withSchedule(CronScheduleBuilder.cronSchedule("0 0/1 * 1/1 * ? *")).build();
+    	Scheduler scheduler;
+		try {
+			scheduler = new StdSchedulerFactory().getScheduler();
+			scheduler.start();
+	    	scheduler.scheduleJob(job, trigger);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	*/
+		
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 50);
+        calendar.set(Calendar.HOUR, 3);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
+        calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
+        calendar.set(Calendar.DAY_OF_MONTH, 10);
+        calendar.set(Calendar.YEAR, 2017);
+		/*
+        try {
+			SchedulerFactory sf = new StdSchedulerFactory();
+			Scheduler scheduler = sf.getScheduler();
+ 
+			JobDetail job = JobBuilder.newJob(SimpleJob.class)
+					.withIdentity("dummyJobName", "group1").build();
+ 
+ 
+			// run 10 seconds only 4 times infinite loop
+			
+			SimpleTrigger simpletrigger = (SimpleTrigger) TriggerBuilder
+					.newTrigger()
+					.withIdentity("FourTimesTrigger", "group1")
+					.startAt(calendar.getTime()).build();
+					// startNow()
+					//.withSchedule(SimpleScheduleBuilder.simpleSchedule()
+					//.withIntervalInSeconds(10)
+					//.withRepeatCount(4)).build();
+							
+ 
+			scheduler.start();
+			scheduler.scheduleJob(job, simpletrigger);
+ 
+			scheduler.shutdown();
+ 
+
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        
+        */
+		//TextMessage.sendTextNotification("+", "blahuihui");
+        
+		//TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
+		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
-		UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
 		
 		/*Users u = (Users) ac.getBean("users");

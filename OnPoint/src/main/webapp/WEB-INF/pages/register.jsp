@@ -80,11 +80,11 @@ body {
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
     
-    <div id="login-box">
+    <div id="Register-box">
         <div id="register">
             <h>New User</h>
         </div>
-        <form:form id="registerForm" modelAttribute="register" action="homepage" method="post">
+        <form:form id="registerForm" modelAttribute="register" action="registerProcess" method="post">
                 <tr>
                         <td></td>
                         <td>
