@@ -1,6 +1,7 @@
 package com.revature.util;
 
 import org.quartz.Job;
+import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.SimpleTrigger;
@@ -13,7 +14,8 @@ public class SimpleJob implements Job {
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		System.out.println("Hello On.");
+		JobDataMap data = context.getJobDetail().getJobDataMap();
+		String description = data.getString("description");
+		TextMessage.sendTextNotification("+", description);
 	}
-	
-	
 }

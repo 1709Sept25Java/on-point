@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.revature.beans.*;
 import com.revature.dao.EventsDao;
 import com.revature.dao.UsersDao;
+import com.revature.util.ScheduleTextMessage;
 
 @Controller
 public class EventController {
@@ -29,6 +30,9 @@ public class EventController {
 		String location = event.getLocation();
 		String description = event.getDescription();
 		
+		String date = event_date + " " + event_time;
+		
+		
 		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		 Events e = (Events) ac.getBean("events");
@@ -38,7 +42,8 @@ public class EventController {
 			e.setDescription(description);
 			e.setTime(event_time);
 			ed.addEvent(e);
-			
+			ScheduleTextMessage.message(date, description);
+
 	  ModelAndView mav = null;
 	  mav = new ModelAndView("event");
 	  return mav;

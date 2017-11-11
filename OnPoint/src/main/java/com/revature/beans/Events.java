@@ -7,47 +7,6 @@ import javax.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/*
-public class Event {
-	private int u_id;
-	private String date;
-	private String time;
-	private String location;
-	private String description;
-	
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-	public int getU_id() {
-		return u_id;
-	}
-	public void setU_id(int u_id) {
-		this.u_id = u_id;
-	}
-
-}*/
-
 @Component("events")
 @Scope("prototype")
 @Entity

@@ -18,7 +18,7 @@ public class TextMessage {
 		Properties prop = new Properties();
 		InputStream in;
 		try {
-			in = new FileInputStream("src/main/resources/twilio.properties");
+			in = TextMessage.class.getClassLoader().getResourceAsStream("twilio.properties");
 			prop.load(in);
 			ACCOUNT_SID = prop.getProperty("account_sid");
 			AUTH_TOKEN = prop.getProperty("auth_token");
