@@ -34,7 +34,7 @@ body {
         font-family: Courier;
     }
     
-    #login-box {
+    #register-box {
         background-color: #F8F8FF;
         margin: 0 auto;
         height: 300px;
@@ -80,7 +80,7 @@ body {
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
     
-    <div id="Register-box">
+    <div id="register-box">
         <div id="register">
             <h>New User</h>
         </div>
