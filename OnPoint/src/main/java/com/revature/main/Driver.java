@@ -72,7 +72,7 @@ public class Driver {
         calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
         calendar.set(Calendar.DAY_OF_MONTH, 10);
         calendar.set(Calendar.YEAR, 2017);
-		
+		/*
         try {
 			SchedulerFactory sf = new StdSchedulerFactory();
 			Scheduler scheduler = sf.getScheduler();
@@ -103,9 +103,10 @@ public class Driver {
         	e.printStackTrace();
         }
         
-        
+        */
 		//TextMessage.sendTextNotification("+", "blahuihui");
-		//TextMessage.sendTextNotificationWithImage("+", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
+        
+		TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
 		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
