@@ -45,7 +45,7 @@ public class EventController {
 			ScheduleTextMessage.message(date, description);
 
 	  ModelAndView mav = null;
-	  mav = new ModelAndView("event");
+	  mav = new ModelAndView("home");
 	  return mav;
 	}
 	

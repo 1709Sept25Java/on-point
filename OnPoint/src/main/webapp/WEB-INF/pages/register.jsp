@@ -59,16 +59,13 @@ body {
         padding-top: 15px;
     }
     
-    #number {
-        margin-left: -4px;
-    }
-    
     #register {
         font-size: 20px;
         border-bottom: 1px solid #808080;
         width: 250px;
         padding-bottom: 5px;
         font-family: Lucida;
+        color: #808080;
     }
     
     #number {

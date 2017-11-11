@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,13 +15,13 @@
 <style>
 	#col1 {
 		width: 100%;
-		height: 650px;
+		height: 550px;
 		border-right: 1.5px solid #808080;
 	}
 	
 	#col2 {
 		width: 100%;
-		height: 650px;
+		height: 550px;
 	}
 	
 	#photo {
@@ -35,10 +37,11 @@
 	
 	#my_events {
 		height: 450px;
+		
 	}
 	
 	#new_events {
-		height: 200px;
+		height: 100px;
 	}
 	
 	ul {
@@ -74,7 +77,7 @@
 	}
 	
 	.weather_icons{
-		font-size: 50px;
+		font-size: 80px;
 		color: #BA55D3; 
 		padding: 10px;
 	
@@ -83,7 +86,46 @@
 	span {
 		color: #808080;
 	}
-
+	
+	.button {
+      display: inline-block;
+      border-radius: 6px;
+      background-color: #E0FFFF;
+      border: none;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      padding: 5px;
+      width: 130px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 </style>
 
 <ul>
@@ -128,10 +170,18 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" id="col2">
             <div id="my_events">
-                <h>My Events</h>
+            	<div style="border-bottom: 1.5px solid #808080; width: 100%">
+                	<h>My Events</h>
+                </div>
             </div>
             <div id="new_events">
-                <h>New Events</h>
+                <div style="border-bottom: 1.5px solid #808080; width: 100%">
+                	<h>New Event</h>
+                </div>
+                <div style="margin-top: 15px">
+	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a>
+	                <span style="margin-left: 200px">Create Recurring Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a></span></span></h>
+            	</div>
             </div>
         </div>
     </div>
@@ -174,9 +224,7 @@
     	    var urlString = api+"lat=" + lati + "&" + "lon=" + longi;
     	    console.log(urlString);
     		sendAJAX(urlString, getWeather);
-
     	}
-
     	function showError(error) {
     	    switch(error.code) {
     	        case error.PERMISSION_DENIED:
@@ -213,11 +261,11 @@
     		var info = JSON.parse(xhr.responseText);
     		document.getElementById("city").innerHTML = info.name + ", ";
     		document.getElementById("country").innerHTML = info.sys.country;
-    		tempInC = ((Math.round(info.main.temp * 10) / 10) + 32) * 9 / 5;
+    		tempInC = (Math.round(info.main.temp * 10) / 10) * 9 / 5 + 32;
     		document.getElementById("temp").innerHTML = tempInC +  " " + String.fromCharCode(176);
 			document.getElementById("tempunit").innerHTML = unit;
-			document.getElementById("low").innerHTML = ((Math.round(info.main.temp_min * 10) / 10) + 32) * 9 / 5 + " " + String.fromCharCode(176)+ unit;
-			document.getElementById("high").innerHTML = ((Math.round(info.main.temp_max * 10) / 10) + 32) * 9 / 5 + " " + String.fromCharCode(176) + unit;
+			document.getElementById("low").innerHTML = (Math.round(info.main.temp_min * 10) / 10) * 9 / 5 + 32 + " " + String.fromCharCode(176)+ unit;
+			document.getElementById("high").innerHTML = (Math.round(info.main.temp_max * 10) / 10) * 9 / 5 + 32 + " " + String.fromCharCode(176) + unit;
 			document.getElementById("current").innerHTML = info.weather[0].main;
     		IconGenerator(info.weather[0].main);
     	}
@@ -247,7 +295,6 @@
     		  		x[0].classList.remove('hide');
     		  }
     		}
-
     		function addIcon(desc) {
     			var x = document.getElementsByClassName(desc);
     			x[0].classList.remove('hide');
