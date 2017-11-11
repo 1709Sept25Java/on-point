@@ -68,6 +68,7 @@
 	.active {
 	    background-color: #4CAF50;
 	}
+<<<<<<< HEAD
 	
 	div.hide {
 	  display: none;
@@ -84,6 +85,9 @@
 		color: #808080;
 	}
 	
+=======
+
+>>>>>>> 7ce6aadbb6bf72719096f01412aabb4da7347028
 </style>
 
 <ul>
@@ -102,6 +106,7 @@
             <div style="text-align: center">
                 <h>Weather</h>
             </div>
+<<<<<<< HEAD
             <div id="weather_info" style="text-align: center">
             	
             	<div class="weather_icons">
@@ -124,6 +129,8 @@
               	<p>Current Weather: <span id="current"></span></p>
               
             </div>
+=======
+>>>>>>> 7ce6aadbb6bf72719096f01412aabb4da7347028
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" id="col2">
             <div id="my_events">
@@ -134,6 +141,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <script>
     
    	 	var lat = document.getElementById("lat");
@@ -253,5 +261,7 @@
     		}
  		
     </script>
+=======
+>>>>>>> 7ce6aadbb6bf72719096f01412aabb4da7347028
 </body>
 </html>
