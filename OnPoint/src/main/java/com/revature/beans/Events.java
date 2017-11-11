@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 @Entity
 @Table(name="OP_EVENTS")
-
 @NamedQueries({
 	@NamedQuery(
 			name = "namedQueryGetEventsByUserId",
