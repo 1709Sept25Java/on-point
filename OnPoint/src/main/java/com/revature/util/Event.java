@@ -1,6 +1,12 @@
 package com.revature.util;
 
 public class Event {
+	public Event(String date, String description, String type) {
+		super();
+		this.date = date;
+		this.description = description;
+		this.type = type;
+	}
 	String date;
 	String description;
 	String type; //single or recurrent

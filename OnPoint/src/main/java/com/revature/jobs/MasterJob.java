@@ -13,26 +13,29 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 
 public class MasterJob {
-/*
-	@Scheduled(fixedRate=5000)
-	public void scheduleEvent(){
-		Schedule schedEvents = new Schedule();
-		while (!schedEvents.isEmpty()) {
-			Event e = schedEvents.pop();
+	
+	@Scheduled(fixedRate=3000)
+	public void scheduleEvents(){
+		while (!Schedule.getSchedule().isEmpty()) {
+			Event e = Schedule.getSchedule().pop();
 			if (e.getType()=="single") {
-				ScheduleTextMessage.message(e.getDate(), e.getDescription());
-
+				System.out.println(e.toString());
+				ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription());
 			}
 			else {
-				//recurrent job
+				ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription());
 			}
-			
 		}
 	}
-	*/
-	@Scheduled(fixedRate=1000)
+	
+	
+	
+	/*
+	@Scheduled(fixedRate=5000)
 	public void hello() {
 		System.out.println("hello");
+		
 	}
+	*/
 
 }

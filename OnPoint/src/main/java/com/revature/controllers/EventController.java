@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.revature.beans.*;
 import com.revature.dao.EventsDao;
 import com.revature.dao.UsersDao;
+import com.revature.util.Event;
+import com.revature.util.Schedule;
 import com.revature.util.ScheduleTextMessage;
 
 @Controller
@@ -30,20 +32,25 @@ public class EventController {
 		String location = event.getLocation();
 		String description = event.getDescription();
 		
-		String date = event_date + " " + event_time;
+		String date = event_date +" "+ event_time;
 		
 		
 		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
-		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
+		 /*EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		 Events e = (Events) ac.getBean("events");
 			e.setU_id(1);
 			e.setDate(event_date);
 			e.setLocation(location);
 			e.setDescription(description);
 			e.setTime(event_time);
-			ed.addEvent(e);
-//			ScheduleTextMessage.message(date, description);
-
+			ed.addEvent(e);*/
+		Event singleEvent = new Event(date, description, "single");
+		
+		Schedule.getSchedule().add(singleEvent);
+		
+//		ScheduleTextMessage.singleMessage(date, description);
+		System.out.println(date);
+		
 	  ModelAndView mav = null;
 	  mav = new ModelAndView("home");
 	  return mav;
@@ -69,7 +76,10 @@ public class EventController {
 			e.setDescription(description);
 			e.setTime(event_time);
 			ed.addEvent(e);
-			ScheduleTextMessage.message(event_time, description);
+		Event recurringEvent = new Event(event_time, description, "recurring");	
+		Schedule.getSchedule().add(recurringEvent);
+		
+		//ScheduleTextMessage.message(event_time, description);
 
 	  ModelAndView mav = null;
 	  mav = new ModelAndView("home");
