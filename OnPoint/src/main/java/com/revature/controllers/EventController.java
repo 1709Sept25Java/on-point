@@ -42,7 +42,7 @@ public class EventController {
 			e.setDescription(description);
 			e.setTime(event_time);
 			ed.addEvent(e);
-			ScheduleTextMessage.message(date, description);
+//			ScheduleTextMessage.message(date, description);
 
 	  ModelAndView mav = null;
 	  mav = new ModelAndView("home");
