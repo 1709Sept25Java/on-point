@@ -27,6 +27,9 @@ public class EventController {
 	@RequestMapping(value = "/eventProcess", method = RequestMethod.POST)
 	public ModelAndView eventProcess(HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("event") Events event) {
+		HttpSession session = request.getSession();
+		String phone = (String) session.getAttribute("phone");
+		String phoneNumber = "+1" + phone;
 		String event_date = event.getDate();
 		String event_time = event.getTime();
 		String location = event.getLocation();
@@ -71,11 +74,12 @@ public class EventController {
 		
 		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
-		 Events e = (Events) ac.getBean("events");
+		/*Events e = (Events) ac.getBean("events");
 			e.setU_id(1);
 			e.setDescription(description);
 			e.setTime(event_time);
 			ed.addEvent(e);
+			*/
 		Event recurringEvent = new Event(event_time, description, "recurring");	
 		Schedule.getSchedule().add(recurringEvent);
 		

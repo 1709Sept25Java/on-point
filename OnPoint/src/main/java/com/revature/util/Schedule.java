@@ -1,12 +1,17 @@
 package com.revature.util;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 public class Schedule {
-	private Stack<Event> events;
+	private List<Event> events;
 	
 	private Schedule() {
-		events = new Stack<>();
+		events = new ArrayList<>();
 	}
 	
 	private static Schedule schedule;
@@ -19,15 +24,29 @@ public class Schedule {
 	}
 		
 	public boolean isEmpty() {
-		return schedule.events.empty();
+		return schedule.events.isEmpty();
 	}
 	
-	public Event pop() {
-		return schedule.events.pop();
+	public Event currentEvent(Date now) {
+		Event e = null;
+		System.out.println(now);
+		for (Iterator<Event> iterator = schedule.events.iterator(); iterator.hasNext() ;) {
+			e = iterator.next();
+			if (e.compareDate(now) == true) {
+				if (e.getType()=="single") {
+					iterator.remove();
+					return e;
+				}
+				else {
+					return e;
+				}
+			}
+		}
+		return null;
 	}
 	
 	public void add(Event e) {
-		schedule.events.push(e);
+		schedule.events.add(e);
 	}
 	
 }

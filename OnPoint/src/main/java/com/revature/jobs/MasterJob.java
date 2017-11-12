@@ -1,5 +1,7 @@
 package com.revature.jobs;
 
+import java.util.Date;
+
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -16,15 +18,28 @@ public class MasterJob {
 	
 	@Scheduled(fixedRate=3000)
 	public void scheduleEvents(){
-		while (!Schedule.getSchedule().isEmpty()) {
-			Event e = Schedule.getSchedule().pop();
-			if (e.getType()=="single") {
-				System.out.println(e.toString());
-				ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription());
+		if (!Schedule.getSchedule().isEmpty()) {
+			Date now = new Date();
+			
+			Event e = Schedule.getSchedule().currentEvent(now);
+			
+			if (e != null) {
+				if (e.getType() == "single") {
+					System.out.println(e.toString());
+					ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription());
+				}
+				else {
+					ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription());
+				}
 			}
-			else {
-				ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription());
-			}
+			
+			//if (e.getType()=="single") {
+//				System.out.println(e.toString());
+//				ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription());
+//			}
+//			else {
+//				ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription());
+//			}
 		}
 	}
 	
