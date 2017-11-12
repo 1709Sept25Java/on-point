@@ -11,6 +11,8 @@
 <title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 </head>
 <style>
 	#col1 {
@@ -36,7 +38,7 @@
 	}
 	
 	#my_events {
-		height: 450px;
+		height: 400px;
 		
 	}
 	
@@ -80,6 +82,7 @@
 		font-size: 80px;
 		color: #BA55D3; 
 		padding: 10px;
+		margin-top: 20px;
 	
 	}
 	
@@ -129,7 +132,7 @@
 </style>
 
 <ul>
-  <li><a class="active" href="#">Home</a></li>
+  <li><a class="active" href="home">Home</a></li>
   <li><a href="#">About Us</a></li>
   <li><a href="#">Account</a></li>
   <li style="float:right"><a href="logout">Logout</a></li>
@@ -173,14 +176,31 @@
             	<div style="border-bottom: 1.5px solid #808080; width: 100%">
                 	<h>My Events</h>
                 </div>
+                <table class="table table-hover">
+				  <thead>
+				    <tr>
+				      <th scope="col">ID</th>
+				      <th scope="col">Date</th>
+				      <th scope="col">Time</th>
+				      <th scope="col">Location</th>
+				      <th scope="col">Description</th>
+				    </tr>
+				  </thead>
+				  <tbody id="allEvents">
+				   
+				  </tbody>
+				</table>
+            </div>
+            <div style="height: 50px">
+            	<a href="delete" style="float:right"><button class="button"><span style="color: white">Delete</span></button></a>
             </div>
             <div id="new_events">
                 <div style="border-bottom: 1.5px solid #808080; width: 100%">
                 	<h>New Event</h>
                 </div>
                 <div style="margin-top: 15px">
-	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a>
-	                <span style="margin-left: 200px">Create Recurring Event: <a style="color: white" href="recurring"><button class="button"><span>Create</span></button></a></span></span></h>
+	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a href="event"><button class="button"><span style="color: white">Create</span></button></a>
+	                <span style="margin-left: 200px">Create Recurring Event: <a href="recurring"><button class="button"><span style="color: white">Create</span></button></a></span></span></h>
             	</div>
             </div>
         </div>
@@ -224,6 +244,7 @@
     	    var urlString = api+"lat=" + lati + "&" + "lon=" + longi;
     	    console.log(urlString);
     		sendAJAX(urlString, getWeather);
+    		sendAJAX("http://localhost:8080/OnPoint/allEvents", getEvents);
     	}
     	function showError(error) {
     	    switch(error.code) {
@@ -300,7 +321,22 @@
     			x[0].classList.remove('hide');
     			
     		}
- 		
+ 		function getEvents(xhr){
+ 			var all = JSON.parse(xhr.responseText);
+ 			var table = document.getElementById("allEvents");
+ 			var i;
+ 			console.log("got data");
+ 			console.log(all);
+ 			for(i = 0; i < all.length; i++){
+ 				table.innerHTML +=  
+ 				"<tr><td>"+all[i].e_id+
+ 				"</td><td>"+all[i].event_date+
+ 				"</td><td>"+all[i].event_time+
+ 				"</td><td>"+all[i].location+
+ 				"</td><td>"+all[i].description+
+ 				"</td></tr>";
+ 			}
+ 		}
     </script>
 </body>
 </html>

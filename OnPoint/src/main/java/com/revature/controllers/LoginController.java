@@ -1,5 +1,8 @@
 package com.revature.controllers;
 
+import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,8 +25,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.beans.Events;
 import com.revature.beans.Login;
 import com.revature.beans.Users;
+import com.revature.dao.EventsDao;
 import com.revature.dao.UsersDao;
 
 @Controller
@@ -38,8 +43,14 @@ public class LoginController {
 		mav.addObject("login", new Login());
 		return mav;
 	}	
+	
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public ModelAndView showHome(HttpServletRequest req, HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
 
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/homepage")
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("login") Login login) {
 	  ModelAndView mav = null;
@@ -66,15 +77,33 @@ public class LoginController {
 		  mav = new ModelAndView("login");
 		  mav.addObject("message", "**Invalid Username**");
 	  }
+	  try {
+		saveAllEvents(request, response);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
 	  return mav;
 	}
 	
 	
 	@RequestMapping(value="/user")
 	public void saveUser(HttpSession session) {
-		/*session.setAttribute("id", user.getId());
+		session.setAttribute("id", user.getId());
 		session.setAttribute("role", user.getUser_type());
-		session.setAttribute("latitude", "test");
+		/*session.setAttribute("latitude", "test");
 		session.setAttribute("longitude", "test");*/
+	}
+	
+	@RequestMapping(value="/allEvents")
+	public void saveAllEvents(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		  ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		  EventsDao ed = (EventsDao) ac.getBean("eventsDao");
+		  List<Events> el = ed.namedQueryGetEventsByUserId(user.getId());
+		  resp.setContentType("application/json");
+		  ObjectMapper om = new ObjectMapper();
+		  om.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		  String str = om.writeValueAsString(el);
+		  resp.getWriter().write(str);
+
 	}
 }
