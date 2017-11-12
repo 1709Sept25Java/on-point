@@ -78,9 +78,9 @@ public class LoginController {
 	
 	@RequestMapping(value="/user")
 	public void saveUser(HttpSession session) {
-		/*session.setAttribute("id", user.getId());
+		session.setAttribute("id", user.getId());
 		session.setAttribute("role", user.getUser_type());
-		session.setAttribute("latitude", "test");
+		/*session.setAttribute("latitude", "test");
 		session.setAttribute("longitude", "test");*/
 	}
 }
