@@ -38,7 +38,7 @@
 	}
 	
 	#my_events {
-		height: 450px;
+		height: 400px;
 		
 	}
 	
@@ -82,6 +82,7 @@
 		font-size: 80px;
 		color: #BA55D3; 
 		padding: 10px;
+		margin-top: 20px;
 	
 	}
 	
@@ -190,13 +191,16 @@
 				  </tbody>
 				</table>
             </div>
+            <div style="height: 50px">
+            	<a href="delete" style="float:right"><button class="button"><span style="color: white">Delete</span></button></a>
+            </div>
             <div id="new_events">
                 <div style="border-bottom: 1.5px solid #808080; width: 100%">
                 	<h>New Event</h>
                 </div>
                 <div style="margin-top: 15px">
-	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a>
-	                <span style="margin-left: 200px">Create Recurring Event: <a style="color: white" href="recurring"><button class="button"><span>Create</span></button></a></span></span></h>
+	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a href="event"><button class="button"><span style="color: white">Create</span></button></a>
+	                <span style="margin-left: 200px">Create Recurring Event: <a href="recurring"><button class="button"><span style="color: white">Create</span></button></a></span></span></h>
             	</div>
             </div>
         </div>

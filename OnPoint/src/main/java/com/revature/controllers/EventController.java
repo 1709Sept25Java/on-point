@@ -76,4 +76,27 @@ public class EventController {
 	  return mav;
 	}
 	
+	@RequestMapping(value="/delete", method = RequestMethod.GET)
+	public ModelAndView showDelete(HttpServletRequest req, HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView("delete");
+		mav.addObject("delete", new Delete());
+		return mav;
+	}	
+	
+	@RequestMapping(value = "/deleteProcess", method = RequestMethod.POST)
+	public ModelAndView recurringDelete(HttpServletRequest request, HttpServletResponse response,
+	@ModelAttribute("delete") Delete delete) {
+		int id = delete.getId();
+		
+		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
+		 Events e = (Events) ac.getBean("events");
+		 e.setId(id);
+		 ed.deleteEvent(e);
+
+	  ModelAndView mav = null;
+	  mav = new ModelAndView("home");
+	  return mav;
+	}
+	
 }

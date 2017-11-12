@@ -27,13 +27,13 @@ public class Events implements Serializable {
 	@Column(name="EVENT_ID")
 	private int e_id;
 	
-	@Column(name="USER_ID", nullable = false)
+	@Column(name="USER_ID")
 	private int u_id;
 	
 	@Column(name="EVENT_DATE")
 	private String event_date;
 	
-	@Column(name="EVENT_TIME", nullable = false)
+	@Column(name="EVENT_TIME")
 	private String event_time;
 	
 	@Column(name="LOCATION")
