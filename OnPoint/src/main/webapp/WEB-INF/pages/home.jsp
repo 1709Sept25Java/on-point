@@ -129,7 +129,7 @@
 </style>
 
 <ul>
-  <li><a class="active" href="#">Home</a></li>
+  <li><a class="active" href="home">Home</a></li>
   <li><a href="#">About Us</a></li>
   <li><a href="#">Account</a></li>
   <li style="float:right"><a href="logout">Logout</a></li>
