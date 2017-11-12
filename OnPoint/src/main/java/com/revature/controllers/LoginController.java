@@ -38,8 +38,14 @@ public class LoginController {
 		mav.addObject("login", new Login());
 		return mav;
 	}	
+	
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public ModelAndView showHome(HttpServletRequest req, HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
 
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/homepage")
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("login") Login login) {
 	  ModelAndView mav = null;
