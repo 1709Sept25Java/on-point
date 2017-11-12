@@ -76,7 +76,7 @@
     <h id="logo">On<sub>&#9675</sub></h>
     
     <div id="login-box">
-        <form:form id="loginForm" modelAttribute="login" action="home" method="post">
+        <form:form id="loginForm" modelAttribute="login" action="homepage" method="post">
                 	<tr>
                 		<td></td>
                         <td>
