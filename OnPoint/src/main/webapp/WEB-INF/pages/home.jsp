@@ -90,7 +90,7 @@
 	.button {
       display: inline-block;
       border-radius: 6px;
-      background-color: #E0FFFF;
+      background-color: #D8BFD8;
       border: none;
       color: white;
       text-align: center;
@@ -180,7 +180,7 @@
                 </div>
                 <div style="margin-top: 15px">
 	                <h style="font-size: 18px; color: #808080">Create Single Time Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a>
-	                <span style="margin-left: 200px">Create Recurring Event: <a style="color: white" href="event"><button class="button"><span>Create</span></button></a></span></span></h>
+	                <span style="margin-left: 200px">Create Recurring Event: <a style="color: white" href="recurring"><button class="button"><span>Create</span></button></a></span></span></h>
             	</div>
             </div>
         </div>
