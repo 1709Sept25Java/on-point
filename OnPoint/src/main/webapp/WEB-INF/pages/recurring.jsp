@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
 
 <style>
-body {
+	body {
         background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
         background-size: 100%;
     }
@@ -34,10 +34,10 @@ body {
         font-family: Courier;
     }
     
-    #register-box {
+    #event-box {
         background-color: #F8F8FF;
         margin: 0 auto;
-        height: 300px;
+        height: 220px;
         width: 250px;
         border: 1.5px solid #696969;
         border-radius: 12px;
@@ -48,9 +48,10 @@ body {
     input {
         padding: 5px;
         margin-bottom: 5px;
+        width: 200px;
     }
     
-    #register_button {
+    #event_button {
         width: 150px;
         margin-top: 5px;
     }
@@ -59,7 +60,11 @@ body {
         padding-top: 15px;
     }
     
-    #register {
+    #number {
+        margin-left: -4px;
+    }
+    
+    #event {
         font-size: 20px;
         border-bottom: 1px solid #808080;
         width: 250px;
@@ -68,49 +73,38 @@ body {
         color: #808080;
     }
     
-    #number {
-    	margin-left: 3px;
+    #description {
+    	margin-left: 5px;
     }
+    
 </style>
 
 <body>
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
     
-    <div id="register-box">
-        <div id="register">
-            <h>New User</h>
+    <div id="event-box">
+        <div id="event">
+            <h>New Event</h>
         </div>
-        <form:form id="registerForm" modelAttribute="register" action="registerProcess" method="post">
-                <tr>
-                        <td></td>
-                        <td>
-                            <form:input path="username" name="username" id="username" placeholder="Username"/>
-                        </td>
-                    </tr>
+        <form:form id="eventForm" modelAttribute="recurring" action="recurringProcess" method="post">
                     <tr>
                         <td></td>
                         <td>
-                            <form:password path="password" name="password" id="password" placeholder="Password"/>
+                            <form:input type="time" path="time" name="time" id="time" placeholder="time"/>
                         </td>
                     </tr>
-                    <tr>
+                     <tr>
                         <td></td>
                         <td>
-                            <form:input path="email" name="email" id="email" placeholder="Email"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <form:input path="number" name="number" id="number" placeholder="(xxx) xxx-xxxx"/>
+                            <form:input path="description" name="description" id="description" placeholder="Description"/>
                         </td>
                     </tr>
                     <tr>
                         <br>
                         <td></td>
                         <td align="center">
-                            <form:button id="register_button" name="register">Register</form:button>
+                            <form:button id="event_button" name="event">Create Event</form:button>
                         </td>
                     </tr>
         </form:form>

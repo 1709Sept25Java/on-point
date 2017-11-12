@@ -17,7 +17,7 @@ import com.revature.util.ScheduleTextMessage;
 @Controller
 public class EventController {
 	@RequestMapping(value="/event", method = RequestMethod.GET)
-	public ModelAndView showRegister(HttpServletRequest req, HttpServletResponse resp){
+	public ModelAndView showEvent(HttpServletRequest req, HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView("event");
 		mav.addObject("event", new Events());
 		return mav;
@@ -45,9 +45,35 @@ public class EventController {
 			ScheduleTextMessage.message(date, description);
 
 	  ModelAndView mav = null;
-	  mav = new ModelAndView("event");
+	  mav = new ModelAndView("home");
 	  return mav;
 	}
 	
+	@RequestMapping(value="/recurring", method = RequestMethod.GET)
+	public ModelAndView showRecurring(HttpServletRequest req, HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView("recurring");
+		mav.addObject("recurring", new Recurring());
+		return mav;
+	}	
+	
+	@RequestMapping(value = "/recurringProcess", method = RequestMethod.POST)
+	public ModelAndView recurringProcess(HttpServletRequest request, HttpServletResponse response,
+	@ModelAttribute("recurring") Recurring recurring) {
+		String event_time = recurring.getTime();
+		String description = recurring.getDescription();
+		
+		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
+		 Events e = (Events) ac.getBean("events");
+			e.setU_id(1);
+			e.setDescription(description);
+			e.setTime(event_time);
+			ed.addEvent(e);
+			ScheduleTextMessage.message(event_time, description);
+
+	  ModelAndView mav = null;
+	  mav = new ModelAndView("home");
+	  return mav;
+	}
 	
 }

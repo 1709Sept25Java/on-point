@@ -11,7 +11,7 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
 public class ScheduleTextMessage {
 
 	public static void message(String date, String description) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format = new SimpleDateFormat("h:mm a");
 		Date parsed;
 		try {
 			parsed = format.parse(date);

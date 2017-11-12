@@ -13,7 +13,7 @@
 </head>
 
 <style>
-body {
+	body {
         background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
         background-size: 100%;
     }
@@ -34,7 +34,7 @@ body {
         font-family: Courier;
     }
     
-    #login-box {
+    #event-box {
         background-color: #F8F8FF;
         margin: 0 auto;
         height: 300px;
@@ -48,9 +48,10 @@ body {
     input {
         padding: 5px;
         margin-bottom: 5px;
+        width: 200px;
     }
     
-    #register_button {
+    #event_button {
         width: 150px;
         margin-top: 5px;
     }
@@ -63,17 +64,19 @@ body {
         margin-left: -4px;
     }
     
-    #register {
+    #event {
         font-size: 20px;
         border-bottom: 1px solid #808080;
         width: 250px;
         padding-bottom: 5px;
         font-family: Lucida;
+        color: #808080;
     }
     
-    #number {
-    	margin-left: 3px;
+    #description {
+    	margin-left: 5px;
     }
+    
 </style>
 
 <body>
@@ -86,7 +89,7 @@ body {
 	private String description;
      -->
     
-    <div id="Event-box">
+    <div id="event-box">
         <div id="event">
             <h>New Event</h>
         </div>
@@ -106,20 +109,20 @@ body {
                     <tr>
                         <td></td>
                         <td>
-                            <form:input path="location" name="location" id="location" placeholder="location"/>
+                            <form:input path="location" name="location" id="location" placeholder="Location"/>
                         </td>
                     </tr>
                      <tr>
                         <td></td>
                         <td>
-                            <form:input path="description" name="description" id="description" placeholder="description"/>
+                            <form:input path="description" name="description" id="description" placeholder="Description"/>
                         </td>
                     </tr>
                     <tr>
                         <br>
                         <td></td>
                         <td align="center">
-                            <form:button id="event_button" name="event">Create event</form:button>
+                            <form:button id="event_button" name="event">Create Event</form:button>
                         </td>
                     </tr>
         </form:form>
