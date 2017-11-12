@@ -7,6 +7,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Event {
+	public Event(String date, String description, String type, String phone) {
+		super();
+		this.date = date;
+		this.description = description;
+		this.type = type;
+		this.phone = phone;
+	}
+
 	public Event(String date, String description, String type) {
 		super();
 		this.date = date;
@@ -16,6 +24,7 @@ public class Event {
 	String date;
 	String description;
 	String type; //single or recurrent
+	String phone;
 	
 	public Boolean compareDate(Date now) {
 		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -75,8 +84,16 @@ public class Event {
 		this.type = type;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	@Override
 	public String toString() {
-		return "Event [date=" + date + ", description=" + description + ", type=" + type + "]";
+		return "Event [date=" + date + ", description=" + description + ", type=" + type + ", phone=" + phone + "]";
 	}
 }

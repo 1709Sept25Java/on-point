@@ -33,13 +33,8 @@ public class Schedule {
 		for (Iterator<Event> iterator = schedule.events.iterator(); iterator.hasNext() ;) {
 			e = iterator.next();
 			if (e.compareDate(now) == true) {
-				if (e.getType()=="single") {
-					iterator.remove();
-					return e;
-				}
-				else {
-					return e;
-				}
+				iterator.remove();
+				return e;
 			}
 		}
 		return null;
