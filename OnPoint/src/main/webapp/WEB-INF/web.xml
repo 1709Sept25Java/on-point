@@ -9,6 +9,7 @@
   	<param-value>
   		classpath:beans.xml
   		classpath:beansORM.xml
+  		classpath:beansJob.xml
  	</param-value>
   </context-param>
   <servlet>

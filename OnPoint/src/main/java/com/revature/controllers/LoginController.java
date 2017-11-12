@@ -90,6 +90,7 @@ public class LoginController {
 	public void saveUser(HttpSession session) {
 		session.setAttribute("id", user.getId());
 		session.setAttribute("role", user.getUser_type());
+		session.setAttribute("phone", user.getPhone_number());
 		/*session.setAttribute("latitude", "test");
 		session.setAttribute("longitude", "test");*/
 	}
