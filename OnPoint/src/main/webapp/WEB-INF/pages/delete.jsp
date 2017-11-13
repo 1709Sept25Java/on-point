@@ -5,15 +5,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>OnPoint - Login</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Event</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
 </head>
 
 <style>
-    body {
+	body {
         background-image: url("http://data.freehdw.com/lines-abstract-background-point-scheme-background-free.jpg");
         background-size: 100%;
     }
@@ -34,10 +34,9 @@
         font-family: Courier;
     }
     
-    #login-box {
+    #event-box {
         background-color: #F8F8FF;
         margin: 0 auto;
-        text-align: center;
         height: 220px;
         width: 250px;
         border: 1.5px solid #696969;
@@ -48,59 +47,61 @@
     
     input {
         padding: 5px;
-        margin: 5px;
+        margin-bottom: 5px;
+        width: 200px;
+    }
+    
+    #event_button {
+        width: 150px;
+        margin-top: 5px;
     }
     
     form {
         padding-top: 15px;
     }
     
-    a {
-        color: grey;
+    #number {
+        margin-left: -4px;
     }
     
-    #login{
-    	width: 150px;
-        margin-top: 5px;
-        padding: 5px;
+    #event {
+        font-size: 20px;
+        border-bottom: 1px solid #808080;
+        width: 250px;
+        padding-bottom: 5px;
+        font-family: Lucida;
+        color: #808080;
     }
     
-    #password {
-    	margin-left: 8px;
+    #description {
+    	margin-left: 5px;
     }
+    
 </style>
 
 <body>
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
     
-    <div id="login-box">
-        <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
-        	<table>
-                	<tr>
-                		<td></td>
-                        <td>
-                            <form:input path="username" name="username" id="username" placeholder="Username"/>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td></td>
-                        <td>
-                            <form:password path="password" name="password" id="password" placeholder="Password"/>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<br>
-                    	<td></td>
-                        <td align="center">
-                            <form:button id="login" name="login">Login</form:button>
-                        </td>
-                    </tr>
-               </table>
-        </form:form>
-        <div style="padding-top: 10px">
-            <h>New user? <a href="register">Register Here.</a></h>
+    <div id="event-box">
+        <div id="event">
+            <h>Delete Event</h>
         </div>
+        <form:form id="deleteForm" modelAttribute="delete" action="deleteProcess" method="post">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <form:input type="text" path="id" name="id" id="event_id" placeholder="Event ID"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <br>
+                        <td></td>
+                        <td align="center">
+                            <form:button id="event_button" name="event">Delete Event</form:button>
+                        </td>
+                    </tr>
+        </form:form>
     </div>
 </div>
 </body>

@@ -28,6 +28,7 @@ public class RegisterController {
 		return mav;
 	} */	
 	
+<<<<<<< HEAD
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView registerProcess(HttpServletRequest request, HttpServletResponse response,
@@ -49,5 +50,28 @@ public class RegisterController {
 	  ModelAndView mav = new ModelAndView("login");
 	  mav.addObject("message", "Success!");
 	  return mav;
+=======
+	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
+	public String registerProcess(HttpServletRequest request, HttpServletResponse response,
+	@ModelAttribute("register") Register register){
+		String username = register.getUsername();
+		String password = register.getPassword();
+		String email = register.getEmail();
+		String phone = register.getNumber();
+		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		  
+		  UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		  Users u = (Users) ac.getBean("users");
+			u.setUsername(username);
+			u.setPassword(password);
+			u.setUser_type("USER");
+			u.setEmail(email);
+			u.setPhone_number(phone);
+			ud.addUser(u);
+			return "redirect:/";
+
+			
+		
+>>>>>>> 2e40201138c77e72ec11874f2e59c82d2ae07cda
 	}
 }

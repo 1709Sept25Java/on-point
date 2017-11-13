@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 @Entity
 @Table(name="OP_EVENTS")
-
 @NamedQueries({
 	@NamedQuery(
 			name = "namedQueryGetEventsByUserId",
@@ -28,16 +27,16 @@ public class Events implements Serializable {
 	@Column(name="EVENT_ID")
 	private int e_id;
 	
-	@Column(name="USER_ID", nullable = false)
+	@Column(name="USER_ID")
 	private int u_id;
 	
-	@Column(name="EVENT_DATE", nullable = false)
+	@Column(name="EVENT_DATE")
 	private String event_date;
 	
-	@Column(name="EVENT_TIME", nullable = false)
+	@Column(name="EVENT_TIME")
 	private String event_time;
 	
-	@Column(name="LOCATION", nullable = false)
+	@Column(name="LOCATION")
 	private String location;
 	
 	@Column(name="DESCRIPTION")
@@ -95,6 +94,11 @@ public class Events implements Serializable {
 	public String toString() {
 		return "Events [e_id=" + e_id + ", u_id=" + u_id + ", date=" + event_date + ", time=" + event_time + ", location="
 				+ location + ", description=" + description + "]";
+	}
+	public Events(String event_time, String description) {
+		super();
+		this.event_time = event_time;
+		this.description = description;
 	}
 	
 	

@@ -34,7 +34,7 @@ body {
         font-family: Courier;
     }
     
-    #login-box {
+    #register-box {
         background-color: #F8F8FF;
         margin: 0 auto;
         height: 300px;
@@ -59,16 +59,13 @@ body {
         padding-top: 15px;
     }
     
-    #number {
-        margin-left: -4px;
-    }
-    
     #register {
         font-size: 20px;
         border-bottom: 1px solid #808080;
         width: 250px;
         padding-bottom: 5px;
         font-family: Lucida;
+        color: #808080;
     }
     
     #number {
@@ -80,11 +77,15 @@ body {
 <div id="center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h id="logo">On<sub>&#9675</sub></h>
     
-    <div id="login-box">
+    <div id="register-box">
         <div id="register">
             <h>New User</h>
         </div>
+<<<<<<< HEAD
         <form:form id="registerForm" modelAttribute="register" action="register" method="post">
+=======
+        <form:form id="registerForm" modelAttribute="register" action="registerProcess" method="post">
+>>>>>>> 2e40201138c77e72ec11874f2e59c82d2ae07cda
                 <tr>
                         <td></td>
                         <td>
