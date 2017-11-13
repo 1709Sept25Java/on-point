@@ -102,70 +102,7 @@
     </div>
 </div>
 	<script>
-	var lat = document.getElementById("lat");
-	var lon = document.getElementById("lon");
-	var message = document.getElementById("message");
 	
-	var latitude;
-	var longitude;
-	
-	var api = "https://fcc-weather-api.glitch.me/api/current?";
-	
-	var lati;
-	var longi;
-	
-	window.onload = getLocation();
-	
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition, showError);
-	    } else { 
-	        message.innerHTML = "Geolocation not supported by browser.";
-	    }
-	}
-	
-	function showPosition(position) {
-		lati = position.coords.latitude;
-		longi = position.coords.longitude;
-		
-		latitude = position.coords.latitude.toString().substring(0,6);
-    	longitude = position.coords.longitude.toString().substring(0,7);
-	    
-	    var urlString = api+"lat=" + lati + "&" + "lon=" + longi;
-	    console.log(urlString);
-	    
-	    update();
-	}
-	
-	function update(){
-		var location = [{"latitude": latitude},{"longitude": longitude}];
-		console.log(location);
-		$.ajax({
-			type: "POST",
-			url: "http://localhost:8080/OnPoint/user",
-			data: JSON.stringify(location),
-			dataType: "json",
-			success: function(data){
-                $("sessionScope.location").html(data);
-            }
-		});
-	}
-	function showError(error) {
-	    switch(error.code) {
-	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation."
-	            break;
-	        case error.POSITION_UNAVAILABLE:
-	            x.innerHTML = "Location information is unavailable."
-	            break;
-	        case error.TIMEOUT:
-	            x.innerHTML = "The request to get user location timed out."
-	            break;
-	        case error.UNKNOWN_ERROR:
-	            x.innerHTML = "An unknown error occurred."
-	            break;
-	    }
-	}
 	</script>
 </body>
 </html>
