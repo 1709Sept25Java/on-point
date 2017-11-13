@@ -13,6 +13,8 @@ public class TextMessage {
 	public static String ACCOUNT_SID;
 	public static String AUTH_TOKEN;
 	public static String FROM_NUMBER;
+	public static String TO_NUMBER;
+	
  
 	private static void TwilioProperties() {
 		Properties prop = new Properties();
@@ -23,6 +25,7 @@ public class TextMessage {
 			ACCOUNT_SID = prop.getProperty("account_sid");
 			AUTH_TOKEN = prop.getProperty("auth_token");
 			FROM_NUMBER = prop.getProperty("phone");
+			TO_NUMBER = prop.getProperty("test_phone");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,5 +61,10 @@ public class TextMessage {
 		  } catch(Exception e) {
 			  return false;
 		  }
+	  }
+	  
+	  public static String testPhone() {
+		  TwilioProperties();
+		  return TO_NUMBER;
 	  }
 }
