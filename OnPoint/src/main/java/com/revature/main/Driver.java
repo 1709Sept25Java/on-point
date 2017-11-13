@@ -124,12 +124,16 @@ public class Driver {
 		//TextMessage.sendTextNotification("+", "blahuihui");
         
 		//TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
-		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
-		/*UsersDao ud = (UsersDao) ac.getBean("usersDao");
+
+		UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		//System.out.println(ud.getAllUsers());
+		//System.out.println(ed.namedQueryGetEventsByUserId(1));
 		
+		/*
 		Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");
 		u.setPassword("password");
@@ -138,13 +142,6 @@ public class Driver {
 		u.setPhone_number("(555)123-5555");
 		ud.addUser(u);
 		*/
-		/*Users u = (Users) ac.getBean("users");
-		u.setUsername("admin");
-		u.setPassword("password");
-		u.setUser_type("ADMIN");
-		u.setEmail("admin123@gmail.com");
-		u.setPhone_number("(555)555-1234");
-		ud.addUser(u);*/
 		
 		/*Events e = (Events) ac.getBean("events");
 		e.setU_id(1);
