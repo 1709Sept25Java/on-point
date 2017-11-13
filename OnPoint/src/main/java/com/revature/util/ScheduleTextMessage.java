@@ -17,7 +17,7 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
 
 public class ScheduleTextMessage {
 
-	public static void singleMessage(String date, String description) {
+	public static void singleMessage(String date, String description, String phone) {
 		SimpleDateFormat format;
 		format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -25,7 +25,7 @@ public class ScheduleTextMessage {
 		try {
 			parsed = format.parse(date);
 			System.out.println("parsed " + parsed.getDate());
-			schedule(parsed, description);
+			schedule(parsed, description, phone);
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,7 +33,9 @@ public class ScheduleTextMessage {
 		return;
 	}
 	
-	public static void recurringMessage(String date, String description) {
+	public static void recurringMessage(String date, String description, String phone) {
+		schedule(new Date(), description, phone);
+
 //		SimpleDateFormat format;
 //		format = new SimpleDateFormat("HH:mm");
 //
@@ -41,7 +43,6 @@ public class ScheduleTextMessage {
 //		try {
 //			parsed = format.parse(date);
 			//System.out.println("parsed " + parsed.getDate());
-			schedule(new Date(), description);
 //			return;
 //		} catch (Exception e) {
 //			e.printStackTrace();
@@ -49,7 +50,7 @@ public class ScheduleTextMessage {
 //		return;
 	}
 	
-	public static void schedule(Date parsed, String description) {
+	public static void schedule(Date parsed, String description, String phone) {
 		try {
 			Date now = new Date();
 			System.out.println("Schedule time " + parsed);
@@ -59,7 +60,8 @@ public class ScheduleTextMessage {
  
 			JobDetail job = JobBuilder.newJob(SimpleJob.class)
 					.withIdentity("TextJob", "group1")
-					.usingJobData("description",description+" "+parsed)
+					.usingJobData("description","Message scheduled at :" + parsed+"\n "+ description)
+					.usingJobData("phone", phone)
 					.build();
 			
 			System.out.println("Parsed: " + parsed);

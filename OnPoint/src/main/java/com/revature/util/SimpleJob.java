@@ -17,6 +17,7 @@ public class SimpleJob implements Job {
 		System.out.println("Hello On.");
 		JobDataMap data = context.getJobDetail().getJobDataMap();
 		String description = data.getString("description");
-		TextMessage.sendTextNotification("+", description);
+		String phone = data.getString("phone");
+		TextMessage.sendTextNotification(phone, description);
 	}
 }
