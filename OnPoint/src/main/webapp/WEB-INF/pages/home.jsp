@@ -9,9 +9,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
 
@@ -246,12 +243,7 @@
     	    console.log(urlString);
     		sendAJAX(urlString, getWeather);
     		sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allEvents", getEvents);
-    		
-    		
-    		
     	}
-    	
-    	
     	function showError(error) {
     	    switch(error.code) {
     	        case error.PERMISSION_DENIED:
@@ -269,6 +261,20 @@
     	    }
     	}
     	
+    	
+    	function sendAJAX(url, func){
+    		var xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HttpRequest");
+    		
+    		xhr.onreadystatechange = function(){
+    			if(this.readyState == 4 && this.status == 200){
+    				func(this);
+    			}
+    		};
+    		
+    		xhr.open("GET", url);
+    		xhr.send();
+    	}
+    	
     	function getWeather(xhr){
     		
     		var info = JSON.parse(xhr.responseText);
@@ -281,11 +287,7 @@
 			document.getElementById("high").innerHTML = (Math.round(info.main.temp_max * 10) / 10) * 9 / 5 + 32 + " " + String.fromCharCode(176) + unit;
 			document.getElementById("current").innerHTML = info.weather[0].main;
     		IconGenerator(info.weather[0].main);
-    		
-    		var value = info.weather[0].main;
-    		
-    		
-    	}
+    	}ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/homepage
     	function IconGenerator(desc) {
     		  var desc = desc.toLowerCase()
     		  switch (desc) {
