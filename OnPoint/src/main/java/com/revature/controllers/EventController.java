@@ -39,7 +39,7 @@ public class EventController {
 			
 		String phone = "+1" + phoneNumber;
 		
-		String user_id = (String) request.getSession(false).getAttribute("id");
+		//String user_id = (String) request.getSession(false).getAttribute("id");
 		String event_date = event.getDate();
 		String event_time = event.getTime();
 		String location = event.getLocation();
@@ -85,7 +85,7 @@ public class EventController {
 		String phoneNumber = TextMessage.testPhone();
 		String phone = "+1" + phoneNumber;	
 		
-		String user_id = (String) session.getAttribute("id");
+		//String user_id = (String) session.getAttribute("id");
 		
 
 		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
