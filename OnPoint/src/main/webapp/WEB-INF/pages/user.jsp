@@ -10,6 +10,7 @@
 <p id="location">${ sessionScope.location }</p>
 <p id="id">${ sessionScope.id }</p>
 <p id="role">${ sessionScope.role }</p>
+<p id="role">${ sessionScope.phone }</p>
 <p id="latitude">${ sessionScope.latitude}</p>
 <p id="longitude">${ sessionScope.longitude}</p>
 </body>

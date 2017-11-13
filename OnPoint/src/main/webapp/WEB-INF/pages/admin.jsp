@@ -125,11 +125,23 @@
             </div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" id="col2">
-            <div id="my_events">
-                <h>All Users</h>
+            <div>
+	            	<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th scope="col">Username</th>
+					      <th scope="col">Email</th>
+					      <th scope="col">Phone Number</th>
+					      <%-- <th scope="col">Events</th> --%>
+					    </tr>
+					  </thead>
+					  <tbody id="allUsers">
+					   
+					  </tbody>
             </div>
         </div>
     </div>
+    
     <script>
     
    	 	var lat = document.getElementById("lat");
@@ -247,9 +259,67 @@
     			x[0].classList.remove('hide');
     			
     		}
+    		
+    		/*function getUserEvents(xhr,userList) {
+    			
+    			var events = JSON.parse(xhr.responseText);
+    			
+    			for(u in userList) {
+    				if(u === events[i].u_id) {
+    					var u = {};
+    					u[i] = (events[i]);
+    					
+    					var eventsCol = document.getElementsByClassName('events');
+		    			for(i = 0; i < all.length; i++) {
+	 					eventsCol[i].innerHTML = u[i];
+	 				}
+    				}
+    			}
+    			
+    		}*/
+    		
+    		
+    		function getUsers(xhr){
+     			var all = JSON.parse(xhr.responseText);
+     			var table = document.getElementById("allUsers");
+     			var i;
+     			//var j;
+     			//var userList = {};
+     			console.log("got data");
+     			console.log(all);
+     			
+     			//sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allEvents",getUserEvents);
+     			
+     			for(i = 0; i < all.length; i++){
+     				if(all[i].user_type != "ADMIN") {
+     					//userList[i] = all[i].id;
+	     				table.innerHTML +=  
+	     				"<tr><td>"+all[i].username+
+	     				"</td><td>"+all[i].email+
+	     				"</td><td>"+all[i].phone_number+
+	     				//"</td><td class=\"events\">"+
+	     				"</td></tr>";
+     				} else {
+     				};
+     				
+     			};
+     		}
+    		
+    		function addLoadEvent(func) {
+    			  var oldonload = window.onload;
+    			  if (typeof window.onload != 'function') {
+    			    window.onload = func;
+    			  } else {
+    			    window.onload = function() {
+    			      if (oldonload) {
+    			        oldonload();
+    			  }
+    			  func();
+    			  }
+    			}
+    		}
+    			addLoadEvent(sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allUsers",getUsers));
  		
     </script>
-=======
->>>>>>> 7ce6aadbb6bf72719096f01412aabb4da7347028
 </body>
 </html>

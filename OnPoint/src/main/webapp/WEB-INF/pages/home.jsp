@@ -133,8 +133,6 @@
 
 <ul>
   <li><a class="active" href="home">Home</a></li>
-  <li><a href="#">About Us</a></li>
-  <li><a href="#">Account</a></li>
   <li style="float:right"><a href="logout">Logout</a></li>
 </ul>
 
@@ -156,7 +154,7 @@
 					<div class="wi wi-rain rain hide"></div>
 					<div class="wi wi-snow snow hide"></div>
 					<div class="wi wi-thunderstorm thunderstorm hide"></div>
-					<div class="wi wi-day-cloudy clouds hide"></div>
+					<div class="wi wi-day-cloudy clouds haze hide"></div>
 				</div>
 				
             	<p id="message"></p>
@@ -244,23 +242,10 @@
     	    var urlString = api+"lat=" + lati + "&" + "lon=" + longi;
     	    console.log(urlString);
     		sendAJAX(urlString, getWeather);
-    		sendAJAX("http://localhost:8080/OnPoint/allEvents", getEvents);
+    		sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allEvents", getEvents);
     	}
     	function showError(error) {
-    	    switch(error.code) {
-    	        case error.PERMISSION_DENIED:
-    	            x.innerHTML = "User denied the request for Geolocation."
-    	            break;
-    	        case error.POSITION_UNAVAILABLE:
-    	            x.innerHTML = "Location information is unavailable."
-    	            break;
-    	        case error.TIMEOUT:
-    	            x.innerHTML = "The request to get user location timed out."
-    	            break;
-    	        case error.UNKNOWN_ERROR:
-    	            x.innerHTML = "An unknown error occurred."
-    	            break;
-    	    }
+    	   console.log("Error");
     	}
     	
     	
@@ -311,6 +296,9 @@
     		    case 'clouds':
     		      addIcon(desc)
     		      break;
+    		    case 'haze':
+      		      addIcon(desc)
+      		      break;
     		    default:
     		    	var x = document.getElementsByClassName("clear");
     		  		x[0].classList.remove('hide');

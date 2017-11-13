@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: aneb
-=======
-Built-By: anahi
->>>>>>> 2e40201138c77e72ec11874f2e59c82d2ae07cda
-Build-Jdk: 1.8.0_144
-Created-By: Maven Integration for Eclipse
-

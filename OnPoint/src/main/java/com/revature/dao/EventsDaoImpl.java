@@ -38,6 +38,7 @@ public class EventsDaoImpl implements EventsDao {
 	@Override
 	public Events getEventById(int id) {
 		Session s = sessionFactory.getCurrentSession();
+		s.beginTransaction();
 		Events e = (Events) s.get(Events.class, id);
 		if(s.isOpen()) {
 			s.close();

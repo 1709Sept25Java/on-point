@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -51,7 +52,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/homepage")
-	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView loginProcess(HttpSession session, HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("login") Login login) {
 	  ModelAndView mav = null;
 	  String username = login.getUsername();
@@ -79,6 +80,7 @@ public class LoginController {
 	  }
 	  try {
 		saveAllEvents(request, response);
+		saveUser(session);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
@@ -107,4 +109,20 @@ public class LoginController {
 		  resp.getWriter().write(str);
 
 	}
+	
+	@RequestMapping(value="/allUsers")
+	public void saveAllUsers(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		  ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		  UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		  List<Users> users = ud.getAllUsers();
+		  resp.setContentType("application/json");
+		  ObjectMapper om = new ObjectMapper();
+		  om.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		  String str = om.writeValueAsString(users);
+		  resp.getWriter().write(str);
+
+	}
+
+	
+	
 }
