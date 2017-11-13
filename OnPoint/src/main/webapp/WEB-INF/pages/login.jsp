@@ -138,19 +138,19 @@
 
 	}
 	
-	function update(){
+	/*function update(){
 		var location = [{"latitude": latitude},{"longitude": longitude}];
 		console.log(location);
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/OnPoint/user",
+			url: "http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/user",
 			data: JSON.stringify(location),
 			dataType: "json",
 			success: function(data){
                 $("sessionScope.location").html(data);
             }
 		});
-	}
+	}*/
 	function showError(error) {
 	    switch(error.code) {
 	        case error.PERMISSION_DENIED:
