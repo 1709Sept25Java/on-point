@@ -51,7 +51,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/homepage")
-	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView loginProcess(HttpSession session, HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("login") Login login) {
 	  ModelAndView mav = null;
 	  String username = login.getUsername();
@@ -79,6 +79,7 @@ public class LoginController {
 	  }
 	  try {
 		saveAllEvents(request, response);
+		saveUser(session);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
