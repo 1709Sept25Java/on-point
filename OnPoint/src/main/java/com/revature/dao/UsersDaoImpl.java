@@ -79,7 +79,8 @@ public class UsersDaoImpl implements UsersDao{
 	@Override
 	public List<Users> getAllUsers() {
 		Session s = sessionFactory.getCurrentSession();
-		List<Users> Users = s.createQuery("from Op_users").list();
+		Transaction tx = s.beginTransaction();
+		List<Users> Users = s.createQuery("from Users").list();
 		if(s.isOpen()) {
 			s.close();
 		}
