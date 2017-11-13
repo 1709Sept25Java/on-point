@@ -287,7 +287,7 @@
 			document.getElementById("high").innerHTML = (Math.round(info.main.temp_max * 10) / 10) * 9 / 5 + 32 + " " + String.fromCharCode(176) + unit;
 			document.getElementById("current").innerHTML = info.weather[0].main;
     		IconGenerator(info.weather[0].main);
-    	}ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/homepage
+    	}
     	function IconGenerator(desc) {
     		  var desc = desc.toLowerCase()
     		  switch (desc) {
