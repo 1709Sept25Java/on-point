@@ -22,6 +22,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import static org.quartz.JobBuilder.*;
 
 import com.revature.dao.InviteesDao;
+import com.revature.util.Event;
+import com.revature.util.Schedule;
+import com.revature.util.ScheduleTextMessage;
 import com.revature.util.SimpleJob;
 import com.revature.util.TextMessage;
 import com.revature.beans.*;
@@ -31,6 +34,20 @@ import org.quartz.JobDetail;
 public class Driver {
 
 	public static void main(String[] args) {
+		/*Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.HOUR, 11);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
+        calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
+        calendar.set(Calendar.DAY_OF_MONTH, 11);
+        calendar.set(Calendar.YEAR, 2017);
+		Event e = new Event("2017-11-11 22:40", "testing", "single");
+		Schedule.getSchedule().add(e);
+		System.out.println(Schedule.getSchedule().isEmpty());
+		Event text = Schedule.getSchedule().pop();
+		ScheduleTextMessage.message(text.getDate(), text.getDescription());
+		*/
 		/*
 		JobDetail job = JobBuilder.newJob(SimpleJob.class)
 				.withIdentity("dummyOn.Job", "group1")
@@ -107,11 +124,11 @@ public class Driver {
 		//TextMessage.sendTextNotification("+", "blahuihui");
         
 		//TextMessage.sendTextNotificationWithImage("+19177421581", "cupcake", "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/14/0/FN_Cupcakes-App-Go-To-Vanilla-Cupcake_s4x3.jpg.rend.hgtvcom.616.462.suffix/1390332048162.jpeg");
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		//ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		//EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		//InviteesDao id = (InviteesDao) ac.getBean("inviteesDao");
 		//WeatherDao wd = (WeatherDao) ac.getBean("weatherDao");
-		UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		/*UsersDao ud = (UsersDao) ac.getBean("usersDao");
 		
 		Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");
@@ -120,7 +137,7 @@ public class Driver {
 		u.setEmail("admin123@gmail.com");
 		u.setPhone_number("(555)123-5555");
 		ud.addUser(u);
-		
+		*/
 		/*Users u = (Users) ac.getBean("users");
 		u.setUsername("admin");
 		u.setPassword("password");
