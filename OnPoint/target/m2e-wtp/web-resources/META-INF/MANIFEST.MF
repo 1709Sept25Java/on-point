@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: Mynhung
+=======
 Built-By: aneb
+>>>>>>> cd9948b903f548e5dd30cbba37bd3db5e0b6cac0
 Build-Jdk: 1.8.0_144
 Created-By: Maven Integration for Eclipse
 
