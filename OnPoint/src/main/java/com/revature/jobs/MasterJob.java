@@ -21,7 +21,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public class MasterJob {
 	
-	@Scheduled(fixedRate=3000)
+	@Scheduled(fixedRate=30000)
 	public void scheduleEvents(){
 		if (!Schedule.getSchedule().isEmpty()) {
 			Date now = new Date();
@@ -30,11 +30,11 @@ public class MasterJob {
 			
 			if (e != null) {
 				if (e.getType() == "single") {
-					System.out.println(e.toString());
-					ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription());
+					//System.out.println(e.toString());
+					ScheduleTextMessage.singleMessage(e.getDate(), e.getDescription(), e.getPhone());
 				}
 				else {
-					ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription());
+					ScheduleTextMessage.recurringMessage(e.getDate(), e.getDescription(), e.getPhone());
 				}
 			}
 			
@@ -52,13 +52,9 @@ public class MasterJob {
 	 * Query database for all events no matter the ID
 	 * but only get RECURRENT events
 	 */
-    @Scheduled(cron = "0 0 0 * * *") // everyday at midnight
+    @Scheduled(cron = "0 0 0 * * *") // reschedules events at midnight
     public void retrieveRecurrentEvents() {
-		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
-		  EventsDao ed = (EventsDao) ac.getBean("eventsDao");
-		 // List<Events> el = ed;
-		 //Add to arraylist 
+		Schedule.getSchedule().repopulateRecurrent();
     }
 	
 	/*

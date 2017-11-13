@@ -15,6 +15,7 @@ import com.revature.dao.UsersDao;
 import com.revature.util.Event;
 import com.revature.util.Schedule;
 import com.revature.util.ScheduleTextMessage;
+import com.revature.util.TextMessage;
 
 @Controller
 public class EventController {
@@ -27,9 +28,17 @@ public class EventController {
 	@RequestMapping(value = "/eventProcess", method = RequestMethod.POST)
 	public ModelAndView eventProcess(HttpServletRequest request, HttpServletResponse response,
 	@ModelAttribute("event") Events event) {
+		
+		//Get user phone number
 		HttpSession session = request.getSession();
-		String phoneNumber = (String) session.getAttribute("phone");
+		String phoneNumber = TextMessage.testPhone();
+		if ((String) request.getSession(false).getAttribute("phone") != null 
+				|| (String) request.getSession(false).getAttribute("phone") != "" ) {
+			phoneNumber = (String) request.getSession(false).getAttribute("phone");
+		}
+			
 		String phone = "+1" + phoneNumber;
+		
 		String user_id = (String) request.getSession(false).getAttribute("id");
 		String event_date = event.getDate();
 		String event_time = event.getTime();
@@ -38,7 +47,6 @@ public class EventController {
 		
 		String date = event_date +" "+ event_time;
 		
-		System.out.println(user_id + " " + phone);
 		 ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
 		 EventsDao ed = (EventsDao) ac.getBean("eventsDao");
 		 Events e = (Events) ac.getBean("events");
@@ -73,8 +81,10 @@ public class EventController {
 		String event_time = recurring.getTime();
 		String description = recurring.getDescription();
 		HttpSession session = request.getSession();
-		String phoneNumber = (String) session.getAttribute("phone");
-		String phone = "+1" + phoneNumber;
+		
+		String phoneNumber = TextMessage.testPhone();
+		String phone = "+1" + phoneNumber;	
+		
 		String user_id = (String) session.getAttribute("id");
 		
 
@@ -87,6 +97,7 @@ public class EventController {
 			ed.addEvent(e);
 		Event recurringEvent = new Event(event_time, description, "recurring", phone);	
 		Schedule.getSchedule().add(recurringEvent);
+		Schedule.getSchedule().addRecurring(recurringEvent);
 		
 		//ScheduleTextMessage.message(event_time, description);
 
