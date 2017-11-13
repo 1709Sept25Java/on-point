@@ -142,15 +142,6 @@
         </div>
     </div>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <script>
     
    	 	var lat = document.getElementById("lat");
@@ -297,7 +288,7 @@
      			console.log("got data");
      			console.log(all);
      			
-     			//sendAJAX("http://localhost:8080/OnPoint/allEvents",getUserEvents);
+     			//sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allEvents",getUserEvents);
      			
      			for(i = 0; i < all.length; i++){
      				if(all[i].user_type != "ADMIN") {
@@ -327,10 +318,8 @@
     			  }
     			}
     		}
-    			addLoadEvent(sendAJAX("http://localhost:8080/OnPoint/allUsers",getUsers));
+    			addLoadEvent(sendAJAX("http://ec2-18-221-67-229.us-east-2.compute.amazonaws.com:8080/OnPoint/allUsers",getUsers));
  		
     </script>
-=======
->>>>>>> 7ce6aadbb6bf72719096f01412aabb4da7347028
 </body>
 </html>
