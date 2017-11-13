@@ -31,8 +31,12 @@ public class EventController {
 		
 		//Get user phone number
 		HttpSession session = request.getSession();
-		
 		String phoneNumber = TextMessage.testPhone();
+		if ((String) request.getSession(false).getAttribute("phone") != null 
+				|| (String) request.getSession(false).getAttribute("phone") != "" ) {
+			phoneNumber = (String) request.getSession(false).getAttribute("phone");
+		}
+			
 		String phone = "+1" + phoneNumber;
 		
 		String user_id = (String) request.getSession(false).getAttribute("id");
