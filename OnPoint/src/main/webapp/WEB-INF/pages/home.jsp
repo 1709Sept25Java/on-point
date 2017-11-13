@@ -133,8 +133,6 @@
 
 <ul>
   <li><a class="active" href="home">Home</a></li>
-  <li><a href="#">About Us</a></li>
-  <li><a href="#">Account</a></li>
   <li style="float:right"><a href="logout">Logout</a></li>
 </ul>
 
@@ -156,7 +154,7 @@
 					<div class="wi wi-rain rain hide"></div>
 					<div class="wi wi-snow snow hide"></div>
 					<div class="wi wi-thunderstorm thunderstorm hide"></div>
-					<div class="wi wi-day-cloudy clouds hide"></div>
+					<div class="wi wi-day-cloudy clouds haze hide"></div>
 				</div>
 				
             	<p id="message"></p>
@@ -311,6 +309,9 @@
     		    case 'clouds':
     		      addIcon(desc)
     		      break;
+    		    case 'haze':
+      		      addIcon(desc)
+      		      break;
     		    default:
     		    	var x = document.getElementsByClassName("clear");
     		  		x[0].classList.remove('hide');
