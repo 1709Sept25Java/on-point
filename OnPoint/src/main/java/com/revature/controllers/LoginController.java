@@ -108,4 +108,18 @@ public class LoginController {
 		  resp.getWriter().write(str);
 
 	}
+	
+	@RequestMapping(value="/allUsers")
+	public void saveAllUsers(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		  ApplicationContext ac = new ClassPathXmlApplicationContext("beansORM.xml");
+		  UsersDao ud = (UsersDao) ac.getBean("usersDao");
+		  List<Users> users = ud.getAllUsers();
+		  resp.setContentType("application/json");
+		  ObjectMapper om = new ObjectMapper();
+		  om.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		  String str = om.writeValueAsString(users);
+		  resp.getWriter().write(str);
+
+	}
+	
 }
